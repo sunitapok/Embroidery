@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - Hand Embroidery by Sana</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://use.typekit.net/yjp3aho.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            'sofia': ['sofia-pro', 'sans-serif'],
+          },
+          colors: {
+            'rose-gold': '#E8B4A0',
+            'deep-rose': '#D4847C',
+            'sage': '#A8B5A0',
+            'warm-beige': '#F5F1EB',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="font-sofia bg-warm-beige">
+  <!-- Navigation -->
+  <div id="navbar-container" data-source="components/navbar.html"></div>
+
+  <!-- Checkout Content -->
+  <main class="pt-24 pb-16" data-id="checkout-main">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Progress Steps -->
+      <div class="mb-8" data-id="progress-steps">
+        <div class="flex items-center justify-center space-x-4 md:space-x-8">
+          <div class="flex items-center">
+            <div class="w-10 h-10 bg-deep-rose text-white rounded-full flex items-center justify-center font-semibold">1</div>
+            <span class="ml-2 text-deep-rose font-medium">Cart</span>
+          </div>
+          <div class="w-8 md:w-16 h-0.5 bg-deep-rose"></div>
+          <div class="flex items-center">
+            <div class="w-10 h-10 bg-deep-rose text-white rounded-full flex items-center justify-center font-semibold">2</div>
+            <span class="ml-2 text-deep-rose font-medium">Checkout</span>
+          </div>
+          <div class="w-8 md:w-16 h-0.5 bg-gray-300"></div>
+          <div class="flex items-center">
+            <div class="w-10 h-10 bg-gray-300 text-gray-500 rounded-full flex items-center justify-center font-semibold">3</div>
+            <span class="ml-2 text-gray-500 font-medium">Complete</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid lg:grid-cols-3 gap-8">
+        <!-- Checkout Form -->
+        <div class="lg:col-span-2 space-y-6" data-id="checkout-form-section">
+          <!-- Customer Information -->
+          <div class="bg-white rounded-2xl shadow-lg p-6" data-id="customer-info">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6" data-id="customer-info-title">Customer Information</h2>
+            
+            <form id="checkout-form" class="space-y-4">
+              <div class="grid md:grid-cols-2 gap-4">
+                <div data-id="first-name-field">
+                  <label for="firstName" class="block text-sm font-medium text-gray-700 mb-2">First Name *</label>
+                  <input type="text" id="firstName" name="firstName" required
+                         class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-gold focus:border-transparent">
+                </div>
+                <div data-id="last-name-field">
+                  <label for="lastName" class="block text-sm font-medium text-gray-700 mb-2">Last Name *</label>
+                  <input type="text" id="lastName" name="lastName" required
+                         class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-gold focus:border-transparent">
+                </div>
+              </div>
+
+              <div data-id="email-field">
+                <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
+                <input type="email" id="email" name="email" required
+                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-gold focus:border-transparent">
+              </div>
+
+              <div data-id="phone-field">
+                <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Phone Number *</label>
+                <input type="tel" id="phone" name="phone" required
+                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-gold focus:border-transparent">
+              </div>
+            </form>
+          </div>
+
+          <!-- Shipping Address -->
+          <div class="bg-white rounded-2xl shadow-lg p-6" data-id="shipping-address">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6" data-id="shipping-title">Shipping Address</h2>
+            
+            <div class="space-y-4">
+              <div data-id="address-field">
+                <label for="address" class="block text-sm font-medium text-gray-700 mb-2">Street Address *</label>
+                <input type="text" id="address" name="address" required
+                       placeholder="123 Main Street"
+                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-gold focus:border-transparent">
+              </div>
+
+              <div class="grid md:grid-cols-2 gap-4">
+                <div data-id="city-field">
+                  <label for="city" class="block text-sm font-medium text-gray-700 mb-2">City *</label>
+                  <input type="text" id="city" name="city" required
+                         class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-gold focus:border-transparent">
+                </div>
+                <div data-id="state-field">
+                  <label for="state" class="block text-sm font-medium text-gray-700 mb-2">State *</label>
+                  <select id="state" name="state" required
+                          class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-gold focus:border-transparent">
+                    <option value="">Select State</option>
+                    <option value="Maharashtra">Maharashtra</option>
+                    <option value="Delhi">Delhi</option>
+                    <option value="Karnataka">Karnataka</option>
+                    <option value="Tamil Nadu">Tamil Nadu</option>
+                    <option value="Gujarat">Gujarat</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="grid md:grid-cols-2 gap-4">
+                <div data-id="pincode-field">
+                  <label for="pincode" class="block text-sm font-medium text-gray-700 mb-2">PIN Code *</label>
+                  <input type="text" id="pincode" name="pincode" required
+                         pattern="[0-9]{6}" maxlength="6"
+                         class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-gold focus:border-transparent">
+                </div>
+                <div data-id="country-field">
+                  <label for="country" class="block text-sm font-medium text-gray-700 mb-2">Country *</label>
+                  <select id="country" name="country" required
+                          class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-gold focus:border-transparent">
+                    <option value="India">India</option>
+                    <option value="USA">United States</option>
+                    <option value="UK">United Kingdom</option>
+                    <option value="Canada">Canada</option>
+                    <option value="Australia">Australia</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Payment Method -->
+          <div class="bg-white rounded-2xl shadow-lg p-6" data-id="payment-method">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6" data-id="payment-title">Payment Method</h2>
+            
+            <div class="space-y-4" data-id="payment-options">
+              <label class="payment-option flex items-center p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-rose-gold transition-colors">
+                <input type="radio" name="payment" value="card" class="hidden">
+                <div class="payment-radio w-5 h-5 border-2 border-gray-300 rounded-full mr-4 flex items-center justify-center">
+                  <div class="w-3 h-3 bg-rose-gold rounded-full hidden"></div>
+                </div>
+                <div class="flex items-center">
+                  <i data-lucide="credit-card" class="w-6 h-6 text-gray-600 mr-3"></i>
+                  <div>
+                    <div class="font-medium">Credit/Debit Card</div>
+                    <div class="text-sm text-gray-500">Pay securely with your card</div>
+                  </div>
+                </div>
+              </label>
+
+              <label class="payment-option flex items-center p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-rose-gold transition-colors">
+                <input type="radio" name="payment" value="upi" class="hidden">
+                <div class="payment-radio w-5 h-5 border-2 border-gray-300 rounded-full mr-4 flex items-center justify-center">
+                  <div class="w-3 h-3 bg-rose-gold rounded-full hidden"></div>
+                </div>
+                <div class="flex items-center">
+                  <i data-lucide="smartphone" class="w-6 h-6 text-gray-600 mr-3"></i>
+                  <div>
+                    <div class="font-medium">UPI Payment</div>
+                    <div class="text-sm text-gray-500">GPay, PhonePe, Paytm & more</div>
+                  </div>
+                </div>
+              </label>
+
+              <label class="payment-option flex items-center p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-rose-gold transition-colors">
+                <input type="radio" name="payment" value="cod" class="hidden">
+                <div class="payment-radio w-5 h-5 border-2 border-gray-300 rounded-full mr-4 flex items-center justify-center">
+                  <div class="w-3 h-3 bg-rose-gold rounded-full hidden"></div>
+                </div>
+                <div class="flex items-center">
+                  <i data-lucide="banknote" class="w-6 h-6 text-gray-600 mr-3"></i>
+                  <div>
+                    <div class="font-medium">Cash on Delivery</div>
+                    <div class="text-sm text-gray-500">Pay when you receive</div>
+                  </div>
+                </div>
+              </label>
+            </div>
+
+            <!-- Card Details (shown when card is selected) -->
+            <div id="card-details" class="hidden mt-6 p-4 bg-gray-50 rounded-lg" data-id="card-details">
+              <div class="space-y-4">
+                <div data-id="card-number-field">
+                  <label for="cardNumber" class="block text-sm font-medium text-gray-700 mb-2">Card Number</label>
+                  <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456"
+                         class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-gold focus:border-transparent">
+                </div>
+                
+                <div class="grid grid-cols-2 gap-4">
+                  <div data-id="expiry-field">
+                    <label for="expiry" class="block text-sm font-medium text-gray-700 mb-2">Expiry Date</label>
+                    <input type="text" id="expiry" name="expiry" placeholder="MM/YY"
+                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-gold focus:border-transparent">
+                  </div>
+                  <div data-id="cvv-field">
+                    <label for="cvv" class="block text-sm font-medium text-gray-700 mb-2">CVV</label>
+                    <input type="text" id="cvv" name="cvv" placeholder="123"
+                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-gold focus:border-transparent">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Special Instructions -->
+          <div class="bg-white rounded-2xl shadow-lg p-6" data-id="special-instructions">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6" data-id="instructions-title">Special Instructions</h2>
+            <textarea id="instructions" name="instructions" rows="4" 
+                      placeholder="Any special delivery instructions, gift message, or other notes..."
+                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-gold focus:border-transparent resize-none"></textarea>
+          </div>
+        </div>
+
+        <!-- Order Summary -->
+        <div class="lg:col-span-1" data-id="order-summary-section">
+          <div class="bg-white rounded-2xl shadow-lg p-6 sticky top-24" data-id="order-summary">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6" data-id="summary-title">Order Summary</h2>
+            
+            <!-- Cart Items -->
+            <div id="summary-items" class="space-y-4 mb-6" data-id="summary-items">
+              <!-- Items will be loaded here -->
+            </div>
+
+            <!-- Coupon Code -->
+            <div class="mb-6 p-4 bg-sage/10 rounded-lg" data-id="coupon-section">
+              <div class="flex gap-2">
+                <input type="text" id="couponCode" placeholder="Enter coupon code"
+                       class="flex-1 px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-rose-gold focus:border-transparent">
+                <button id="applyCoupon" 
+                        class="px-4 py-2 bg-deep-rose text-white rounded-lg text-sm font-medium hover:bg-deep-rose/90 transition-colors">
+                  Apply
+                </button>
+              </div>
+              <div id="couponMessage" class="mt-2 text-sm hidden" data-id="coupon-message"></div>
+            </div>
+
+            <!-- Price Breakdown -->
+            <div class="space-y-3 mb-6" data-id="price-breakdown">
+              <div class="flex justify-between">
+                <span class="text-gray-600">Subtotal</span>
+                <span id="subtotal">₹0</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-gray-600">Shipping</span>
+                <span id="shipping">₹0</span>
+              </div>
+              <div id="discount-row" class="flex justify-between text-green-600 hidden">
+                <span>Discount</span>
+                <span id="discount">-₹0</span>
+              </div>
+              <hr>
+              <div class="flex justify-between text-xl font-bold">
+                <span>Total</span>
+                <span id="total">₹0</span>
+              </div>
+            </div>
+
+            <!-- Place Order Button -->
+            <button id="placeOrder" 
+                    class="w-full bg-gradient-to-r from-rose-gold to-deep-rose text-white py-4 px-6 rounded-lg font-semibold text-lg hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300">
+              <span class="flex items-center justify-center gap-2">
+                <i data-lucide="lock" class="w-5 h-5"></i>
+                Place Secure Order
+              </span>
+            </button>
+
+            <!-- Security Info -->
+            <div class="mt-4 text-center text-sm text-gray-500" data-id="security-info">
+              <i data-lucide="shield-check" class="w-4 h-4 inline mr-1"></i>
+              Your payment information is secure and encrypted
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <div id="footer-container" data-source="components/footer.html"></div>
+
+  <script type="module">
+    import { loadComponent } from './scripts/components/loader.js';
+    import { db } from './config/supabase.js';
+    
+    // Load shared components
+    await loadComponent('#navbar-container');
+    await loadComponent('#footer-container');
+    
+    // Initialize icons
+    lucide.createIcons();
+
+    // Checkout functionality
+    class CheckoutManager {
+      constructor() {
+        this.cart = JSON.parse(localStorage.getItem('cart') || '[]');
+        this.couponApplied = null;
+        this.shippingRate = 99;
+        this.freeShippingThreshold = 699;
+        this.availableCoupons = {
+          'SAVE10': { type: 'percentage', value: 10, minOrder: 500 },
+          'FLAT50': { type: 'fixed', value: 50, minOrder: 300 },
+          'WELCOME20': { type: 'percentage', value: 20, minOrder: 1000 }
+        };
+        
+        this.init();
+      }
+
+      init() {
+        this.renderCartSummary();
+        this.setupEventListeners();
+        this.updateTotals();
+      }
+
+      renderCartSummary() {
+        const summaryItems = document.getElementById('summary-items');
+        
+        if (this.cart.length === 0) {
+          summaryItems.innerHTML = '<p class="text-gray-500 text-center">Your cart is empty</p>';
+          return;
+        }
+
+        summaryItems.innerHTML = this.cart.map(item => `
+          <div class="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+            <img src="${item.image}" alt="${item.name}" class="w-12 h-12 object-cover rounded-lg">
+            <div class="flex-1">
+              <h4 class="font-medium text-sm">${item.name}</h4>
+              <p class="text-gray-600 text-sm">₹${item.price} × ${item.quantity}</p>
+            </div>
+            <span class="font-medium">₹${item.price * item.quantity}</span>
+          </div>
+        `).join('');
+      }
+
+      calculateSubtotal() {
+        return this.cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+      }
+
+      calculateShipping(subtotal) {
+        return subtotal >= this.freeShippingThreshold ? 0 : this.shippingRate;
+      }
+
+      calculateDiscount(subtotal) {
+        if (!this.couponApplied) return 0;
+        
+        const coupon = this.availableCoupons[this.couponApplied];
+        if (!coupon) return 0;
+        
+        if (coupon.type === 'percentage') {
+          return Math.floor(subtotal * coupon.value / 100);
+        } else {
+          return coupon.value;
+        }
+      }
+
+      updateTotals() {
+        const subtotal = this.calculateSubtotal();
+        const shipping = this.calculateShipping(subtotal);
+        const discount = this.calculateDiscount(subtotal);
+        const total = subtotal + shipping - discount;
+
+        document.getElementById('subtotal').textContent = `₹${subtotal}`;
+        document.getElementById('shipping').textContent = shipping === 0 ? 'Free' : `₹${shipping}`;
+        document.getElementById('total').textContent = `₹${total}`;
+
+        // Show/hide discount row
+        const discountRow = document.getElementById('discount-row');
+        if (discount > 0) {
+          discountRow.classList.remove('hidden');
+          document.getElementById('discount').textContent = `-₹${discount}`;
+        } else {
+          discountRow.classList.add('hidden');
+        }
+
+        // Update shipping message
+        const shippingElement = document.getElementById('shipping');
+        if (subtotal >= this.freeShippingThreshold) {
+          shippingElement.parentNode.innerHTML = `
+            <span class="text-gray-600">Shipping</span>
+            <span class="text-green-600 font-medium">Free!</span>
+          `;
+        }
+      }
+
+      applyCoupon(code) {
+        const coupon = this.availableCoupons[code.toUpperCase()];
+        const subtotal = this.calculateSubtotal();
+        const messageEl = document.getElementById('couponMessage');
+        
+        if (!coupon) {
+          this.showCouponMessage('Invalid coupon code', 'error');
+          return false;
+        }
+        
+        if (subtotal < coupon.minOrder) {
+          this.showCouponMessage(`Minimum order of ₹${coupon.minOrder} required`, 'error');
+          return false;
+        }
+        
+        this.couponApplied = code.toUpperCase();
+        this.showCouponMessage('Coupon applied successfully!', 'success');
+        this.updateTotals();
+        return true;
+      }
+
+      showCouponMessage(message, type) {
+        const messageEl = document.getElementById('couponMessage');
+        messageEl.textContent = message;
+        messageEl.className = `mt-2 text-sm ${type === 'error' ? 'text-red-600' : 'text-green-600'}`;
+        messageEl.classList.remove('hidden');
+        
+        setTimeout(() => {
+          if (type === 'error') {
+            messageEl.classList.add('hidden');
+          }
+        }, 3000);
+      }
+
+      setupEventListeners() {
+        // Payment method selection
+        document.querySelectorAll('input[name="payment"]').forEach(radio => {
+          radio.addEventListener('change', (e) => {
+            // Update radio button visual
+            document.querySelectorAll('.payment-option').forEach(option => {
+              const radioDiv = option.querySelector('.payment-radio div');
+              option.classList.remove('border-rose-gold', 'bg-rose-gold/5');
+              radioDiv.classList.add('hidden');
+            });
+            
+            const selectedOption = e.target.closest('.payment-option');
+            selectedOption.classList.add('border-rose-gold', 'bg-rose-gold/5');
+            selectedOption.querySelector('.payment-radio div').classList.remove('hidden');
+            
+            // Show/hide card details
+            const cardDetails = document.getElementById('card-details');
+            if (e.target.value === 'card') {
+              cardDetails.classList.remove('hidden');
+            } else {
+              cardDetails.classList.add('hidden');
+            }
+          });
+        });
+
+        // Coupon application
+        document.getElementById('applyCoupon').addEventListener('click', () => {
+          const code = document.getElementById('couponCode').value.trim();
+          if (code) {
+            this.applyCoupon(code);
+          }
+        });
+
+        // Enter key for coupon
+        document.getElementById('couponCode').addEventListener('keypress', (e) => {
+          if (e.key === 'Enter') {
+            const code = e.target.value.trim();
+            if (code) {
+              this.applyCoupon(code);
+            }
+          }
+        });
+
+        // Place order
+        document.getElementById('placeOrder').addEventListener('click', (e) => {
+          e.preventDefault();
+          this.placeOrder();
+        });
+      }
+
+      async placeOrder() {
+        // Validate form
+        const form = document.getElementById('checkout-form');
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+
+        // Check if payment method is selected
+        const paymentMethod = document.querySelector('input[name="payment"]:checked');
+        if (!paymentMethod) {
+          alert('Please select a payment method');
+          return;
+        }
+
+        const orderBtn = document.getElementById('placeOrder');
+        const originalText = orderBtn.innerHTML;
+        
+        // Show loading state
+        orderBtn.innerHTML = '<span class="flex items-center justify-center gap-2"><i data-lucide="loader-2" class="w-5 h-5 animate-spin"></i>Processing...</span>';
+        orderBtn.disabled = true;
+        
+        try {
+          const orderData = {
+            customer_name: `${document.getElementById('firstName').value} ${document.getElementById('lastName').value}`,
+            customer_email: document.getElementById('email').value,
+            customer_phone: document.getElementById('phone').value,
+            shipping_address: {
+              address: document.getElementById('address').value,
+              city: document.getElementById('city').value,
+              state: document.getElementById('state').value,
+              pincode: document.getElementById('pincode').value,
+              country: document.getElementById('country').value
+            },
+            items: this.cart,
+            subtotal: this.calculateSubtotal(),
+            shipping_cost: this.calculateShipping(this.calculateSubtotal()),
+            discount: this.calculateDiscount(this.calculateSubtotal()),
+            total: this.calculateSubtotal() + this.calculateShipping(this.calculateSubtotal()) - this.calculateDiscount(this.calculateSubtotal()),
+            payment_method: paymentMethod.value,
+            coupon_code: this.appliedCoupon,
+            special_instructions: document.getElementById('instructions').value
+          };
+          
+          try {
+            // Try to save to database
+            const { data, error } = await db.createOrder(orderData);
+            if (data) orderData.id = data.id;
+          } catch (dbError) {
+            console.log('Database not connected, using local storage');
+            // Fallback to localStorage
+            customer: {
+              firstName: document.getElementById('firstName').value,
+              lastName: document.getElementById('lastName').value,
+              email: document.getElementById('email').value,
+              phone: document.getElementById('phone').value
+            },
+            shipping: {
+              address: document.getElementById('address').value,
+              city: document.getElementById('city').value,
+              state: document.getElementById('state').value,
+              pincode: document.getElementById('pincode').value,
+              country: document.getElementById('country').value
+            },
+            payment: {
+              method: paymentMethod.value
+            },
+            items: this.cart,
+            totals: {
+              subtotal: this.calculateSubtotal(),
+              shipping: this.calculateShipping(this.calculateSubtotal()),
+              discount: this.calculateDiscount(this.calculateSubtotal()),
+              total: this.calculateSubtotal() + this.calculateShipping(this.calculateSubtotal()) - this.calculateDiscount(this.calculateSubtotal())
+            },
+            coupon: this.couponApplied,
+            instructions: document.getElementById('instructions').value,
+            orderDate: new Date().toISOString()
+          };
+          }
+          
+          // Store order in localStorage (in real app, send to server)
+          const orders = JSON.parse(localStorage.getItem('orders') || '[]');
+          const orderId = orderData.id || 'ORD' + Date.now();
+          orders.push({ id: orderId, ...orderData });
+          localStorage.setItem('orders', JSON.stringify(orders));
+          
+          // Clear cart
+          localStorage.removeItem('cart');
+          
+          // Redirect to success page
+          window.location.href = `order-success.html?orderId=${orderId}`;
+          
+        } catch (error) {
+          console.error('Order placement failed:', error);
+          orderBtn.innerHTML = '<span class="flex items-center justify-center gap-2"><i data-lucide="alert-circle" class="w-5 h-5"></i>Order Failed - Try Again</span>';
+          orderBtn.className = orderBtn.className.replace('from-rose-gold to-deep-rose', 'from-red-500 to-red-600');
+          
+          setTimeout(() => {
+            orderBtn.innerHTML = originalText;
+            orderBtn.className = orderBtn.className.replace('from-red-500 to-red-600', 'from-rose-gold to-deep-rose');
+            orderBtn.disabled = false;
+            lucide.createIcons();
+          }, 3000);
+        }
+      }
+    }
+
+    // Initialize checkout
+    new CheckoutManager();
+  </script>
+</body>
+</html>

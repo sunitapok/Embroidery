@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery - Hand Embroidery by Sana</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://use.typekit.net/yjp3aho.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            'sofia': ['sofia-pro', 'sans-serif'],
+          },
+          colors: {
+            'rose-gold': '#E8B4B8',
+            'deep-rose': '#C1666B',
+            'sage': '#95A99B',
+            'warm-beige': '#F4ECD8',
+            'terracotta': '#D4A574'
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="font-sofia bg-warm-beige">
+  <!-- Navigation -->
+  <div id="navbar-container" data-source="components/navbar.html"></div>
+
+  <!-- Hero Section -->
+  <section class="pt-32 pb-16 bg-gradient-to-br from-warm-beige via-rose-gold/20 to-sage/20" data-id="hero-section">
+    <div class="container mx-auto px-4">
+      <div class="text-center max-w-4xl mx-auto">
+        <h1 class="text-4xl md:text-6xl font-bold text-deep-rose mb-6" data-id="page-title">Gallery</h1>
+        <p class="text-xl text-gray-700 mb-8" data-id="page-subtitle">
+          Explore my collection of intricate hand embroidery and beautiful mehndi designs
+        </p>
+        
+        <!-- Category Filter -->
+        <div class="flex flex-wrap justify-center gap-4 mt-12" data-id="category-filters">
+          <button class="px-6 py-3 bg-deep-rose text-white rounded-full font-semibold filter-btn active" data-category="all" data-id="filter-all">
+            All Work
+          </button>
+          <button class="px-6 py-3 bg-white text-gray-700 rounded-full font-semibold border border-gray-300 hover:border-deep-rose transition-colors filter-btn" data-category="embroidery" data-id="filter-embroidery">
+            Hand Embroidery
+          </button>
+          <button class="px-6 py-3 bg-white text-gray-700 rounded-full font-semibold border border-gray-300 hover:border-sage transition-colors filter-btn" data-category="mehndi" data-id="filter-mehndi">
+            Mehndi Designs
+          </button>
+          <button class="px-6 py-3 bg-white text-gray-700 rounded-full font-semibold border border-gray-300 hover:border-terracotta transition-colors filter-btn" data-category="bridal" data-id="filter-bridal">
+            Bridal Work
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Grid -->
+  <section class="py-16 bg-white" data-id="gallery-section">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" data-id="gallery-grid">
+        
+        <!-- Embroidery Items -->
+        <div class="gallery-item group cursor-pointer" data-category="embroidery" data-id="gallery-item-1">
+          <div class="relative overflow-hidden rounded-2xl shadow-lg">
+            <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=400&h=500&fit=crop" 
+                 alt="Floral Embroidered Earrings" 
+                 class="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500">
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300"></div>
+            <div class="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <h3 class="font-semibold text-lg">Floral Embroidered Earrings</h3>
+              <p class="text-sm">Hand Embroidery</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item group cursor-pointer" data-category="embroidery" data-id="gallery-item-2">
+          <div class="relative overflow-hidden rounded-2xl shadow-lg">
+            <img src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=400&h=600&fit=crop" 
+                 alt="Botanical Wall Art" 
+                 class="w-full h-96 object-cover group-hover:scale-110 transition-transform duration-500">
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300"></div>
+            <div class="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <h3 class="font-semibold text-lg">Botanical Wall Art</h3>
+              <p class="text-sm">Hand Embroidery</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item group cursor-pointer" data-category="embroidery" data-id="gallery-item-3">
+          <div class="relative overflow-hidden rounded-2xl shadow-lg">
+            <img src="https://images.unsplash.com/photo-1574180566232-aaad1b5b8450?w=400&h=500&fit=crop" 
+                 alt="Vintage Cushion Cover" 
+                 class="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500">
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300"></div>
+            <div class="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <h3 class="font-semibold text-lg">Vintage Cushion Cover</h3>
+              <p class="text-sm">Hand Embroidery</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mehndi Items -->
+        <div class="gallery-item group cursor-pointer" data-category="mehndi bridal" data-id="gallery-item-4">
+          <div class="relative overflow-hidden rounded-2xl shadow-lg">
+            <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=600&fit=crop" 
+                 alt="Bridal Mehndi Design" 
+                 class="w-full h-96 object-cover group-hover:scale-110 transition-transform duration-500">
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300"></div>
+            <div class="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <h3 class="font-semibold text-lg">Intricate Bridal Mehndi</h3>
+              <p class="text-sm">Bridal Design</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item group cursor-pointer" data-category="mehndi" data-id="gallery-item-5">
+          <div class="relative overflow-hidden rounded-2xl shadow-lg">
+            <img src="https://images.unsplash.com/photo-1594736797933-d0d7436083f7?w=400&h=500&fit=crop" 
+                 alt="Traditional Mehndi" 
+                 class="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500">
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300"></div>
+            <div class="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <h3 class="font-semibold text-lg">Traditional Festive Mehndi</h3>
+              <p class="text-sm">Mehndi Design</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item group cursor-pointer" data-category="embroidery" data-id="gallery-item-6">
+          <div class="relative overflow-hidden rounded-2xl shadow-lg">
+            <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400&h=500&fit=crop" 
+                 alt="Embroidered Hoops" 
+                 class="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500">
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300"></div>
+            <div class="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <h3 class="font-semibold text-lg">Decorative Embroidery Hoops</h3>
+              <p class="text-sm">Hand Embroidery</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item group cursor-pointer" data-category="mehndi bridal" data-id="gallery-item-7">
+          <div class="relative overflow-hidden rounded-2xl shadow-lg">
+            <img src="https://images.unsplash.com/photo-1566492031773-4f4e44671d66?w=400&h=600&fit=crop" 
+                 alt="Bridal Feet Mehndi" 
+                 class="w-full h-96 object-cover group-hover:scale-110 transition-transform duration-500">
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300"></div>
+            <div class="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <h3 class="font-semibold text-lg">Bridal Feet Mehndi</h3>
+              <p class="text-sm">Bridal Design</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item group cursor-pointer" data-category="embroidery" data-id="gallery-item-8">
+          <div class="relative overflow-hidden rounded-2xl shadow-lg">
+            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=500&fit=crop" 
+                 alt="Embroidered Table Runner" 
+                 class="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500">
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300"></div>
+            <div class="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <h3 class="font-semibold text-lg">Embroidered Table Runner</h3>
+              <p class="text-sm">Hand Embroidery</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item group cursor-pointer" data-category="mehndi" data-id="gallery-item-9">
+          <div class="relative overflow-hidden rounded-2xl shadow-lg">
+            <img src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=400&h=500&fit=crop" 
+                 alt="Arabic Mehndi Style" 
+                 class="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500">
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300"></div>
+            <div class="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <h3 class="font-semibold text-lg">Arabic Style Mehndi</h3>
+              <p class="text-sm">Mehndi Design</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item group cursor-pointer" data-category="embroidery" data-id="gallery-item-10">
+          <div class="relative overflow-hidden rounded-2xl shadow-lg">
+            <img src="https://images.unsplash.com/photo-1558021212-51b6ecfa0db9?w=400&h=600&fit=crop" 
+                 alt="Embroidered Jewelry" 
+                 class="w-full h-96 object-cover group-hover:scale-110 transition-transform duration-500">
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300"></div>
+            <div class="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <h3 class="font-semibold text-lg">Embroidered Jewelry Set</h3>
+              <p class="text-sm">Hand Embroidery</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item group cursor-pointer" data-category="mehndi bridal" data-id="gallery-item-11">
+          <div class="relative overflow-hidden rounded-2xl shadow-lg">
+            <img src="https://images.unsplash.com/photo-1609205264555-efa1bf4b1aee?w=400&h=500&fit=crop" 
+                 alt="Detailed Bridal Mehndi" 
+                 class="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500">
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300"></div>
+            <div class="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <h3 class="font-semibold text-lg">Detailed Bridal Mehndi</h3>
+              <p class="text-sm">Bridal Design</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item group cursor-pointer" data-category="embroidery" data-id="gallery-item-12">
+          <div class="relative overflow-hidden rounded-2xl shadow-lg">
+            <img src="https://images.unsplash.com/photo-1604055195-9b80f2f91c84?w=400&h=500&fit=crop" 
+                 alt="Embroidered Bag" 
+                 class="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500">
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300"></div>
+            <div class="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <h3 class="font-semibold text-lg">Embroidered Handbag</h3>
+              <p class="text-sm">Hand Embroidery</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Load More Button -->
+      <div class="text-center mt-12" data-id="load-more-section">
+        <button class="bg-sage text-white px-8 py-4 rounded-full font-semibold hover:bg-sage/90 transition-colors duration-300" data-id="load-more-btn">
+          Load More Images
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal for Image Preview -->
+  <div id="imageModal" class="fixed inset-0 bg-black/90 z-50 hidden items-center justify-center p-4" data-id="image-modal">
+    <div class="relative max-w-4xl w-full" data-id="modal-content">
+      <button class="absolute -top-12 right-0 text-white text-2xl hover:text-gray-300" data-id="modal-close">
+        <i data-lucide="x"></i>
+      </button>
+      <img id="modalImage" src="" alt="" class="w-full h-auto rounded-lg shadow-2xl" data-id="modal-image">
+      <div class="text-white text-center mt-4" data-id="modal-info">
+        <h3 id="modalTitle" class="text-xl font-semibold mb-2"></h3>
+        <p id="modalCategory" class="text-gray-300"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div id="footer-container" data-source="components/footer.html"></div>
+
+  <script type="module">
+    import { loadComponent } from './scripts/components/loader.js';
+    import { db } from './config/supabase.js';
+    
+    // Load shared components
+    await loadComponent('#navbar-container');
+    await loadComponent('#footer-container');
+    
+    // Initialize icons
+    lucide.createIcons();
+
+    // Load gallery images from database
+    let allImages = [];
+    
+    try {
+      const { data: dbImages, error } = await db.getGalleryImages();
+      if (dbImages && dbImages.length > 0) {
+        allImages = dbImages.map(image => ({
+          id: image.id,
+          src: image.image_url,
+          title: image.title,
+          category: image.category,
+          description: image.description || ''
+        }));
+      }
+    } catch (error) {
+      console.log('Database not connected, using static images');
+    }
+
+    // Gallery images data (fallback if database not connected)
+    const fallbackImages = [
+      {
+        id: 1,
+        src: "https://images.unsplash.com/photo-1583391733956-6c78276477e3?w=600",
+        title: "Vibrant Floral Embroidery",
+        category: "embroidery",
+        description: "A close-up of a vibrant floral embroidery piece, showcasing intricate thread work and bright colors."
+      },
+      {
+        id: 2,
+        src: "https://images.unsplash.com/photo-1594736797933-d0d7436083f7?w=600",
+        title: "Traditional Mehndi Hands",
+        category: "mehndi",
+        description: "Beautifully adorned hands with traditional mehndi designs, perfect for festive occasions."
+      },
+      {
+        id: 3,
+        src: "https://images.unsplash.com/photo-1574180566232-aaad1b5b8450?w=600",
+        title: "Embroidered Cushion Cover",
+        category: "embroidery",
+        description: "An elegant cushion cover with detailed embroidery, adding a touch of sophistication to any living space."
+      },
+      {
+        id: 4,
+        src: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600",
+        title: "Intricate Bridal Mehndi",
+        category: "mehndi bridal",
+        description: "A stunning bridal mehndi design covering the hands and arms, featuring complex patterns and motifs."
+      },
+      {
+        id: 5,
+        src: "https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=600",
+        title: "Botanical Embroidery Hoop",
+        category: "embroidery",
+        description: "A delicate botanical embroidery piece framed in a wooden hoop, ideal for wall decor."
+      },
+      {
+        id: 6,
+        src: "https://images.unsplash.com/photo-1566492031773-4f4e44671d66?w=600",
+        title: "Bridal Feet Mehndi",
+        category: "mehndi bridal",
+        description: "Exquisite mehndi art on bridal feet, complementing the overall wedding attire."
+      },
+      {
+        id: 7,
+        src: "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=600",
+        title: "Abstract Embroidered Art",
+        category: "embroidery",
+        description: "Modern abstract embroidery art with a blend of colors and textures, perfect for contemporary spaces."
+      },
+      {
+        id: 8,
+        src: "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=600",
+        title: "Arabic Mehndi Pattern",
+        category: "mehndi",
+        description: "A flowing Arabic mehndi pattern known for its bold lines and floral elements."
+      },
+      {
+        id: 9,
+        src: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600",
+        title: "Embroidered Textile Art",
+        category: "embroidery",
+        description: "A large-scale embroidered textile art piece, showcasing traditional techniques and cultural motifs."
+      },
+      {
+        id: 10,
+        src: "https://images.unsplash.com/photo-1609205264555-efa1bf4b1aee?w=600",
+        title: "Full Hand Bridal Mehndi",
+        category: "mehndi bridal",
+        description: "Comprehensive bridal mehndi design covering the entire hand, a symbol of beauty and tradition."
+      },
+      {
+        id: 11,
+        src: "https://images.unsplash.com/photo-1558021212-51b6ecfa0db9?w=600",
+        title: "Embroidered Fashion Accessory",
+        category: "embroidery",
+        description: "A stylish fashion accessory adorned with intricate embroidery, adding a unique touch to any outfit."
+      },
+      {
+        id: 12,
+        src: "https://images.unsplash.com/photo-1604055195-9b80f2f91c84?w=600",
+        title: "Geometric Mehndi Design",
+        category: "mehndi",
+        description: "A contemporary mehndi design featuring sharp geometric patterns and clean lines."
+      }
+    ];
+
+    // Use database images if available, otherwise use fallback
+    const galleryImages = allImages.length > 0 ? allImages : fallbackImages;
+
+    // Gallery functionality
+    let currentFilter = 'all';
+    let lightboxOpen = false;
+
+    // Gallery filtering functionality
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const category = btn.getAttribute('data-category');
+        
+        // Update active button
+        filterBtns.forEach(b => {
+          b.classList.remove('active', 'bg-deep-rose', 'bg-sage', 'bg-terracotta', 'text-white');
+          b.classList.add('bg-white', 'text-gray-700', 'border', 'border-gray-300');
+        });
+        
+        btn.classList.add('active', 'text-white');
+        btn.classList.remove('bg-white', 'text-gray-700', 'border', 'border-gray-300');
+        
+        // Set appropriate color based on category
+        if (category === 'all') {
+          btn.classList.add('bg-deep-rose');
+        } else if (category === 'embroidery') {
+          btn.classList.add('bg-deep-rose');
+        } else if (category === 'mehndi') {
+          btn.classList.add('bg-sage');
+        } else if (category === 'bridal') {
+          btn.classList.add('bg-terracotta');
+        }
+        
+        // Filter gallery items
+        galleryItems.forEach(item => {
+          const itemCategories = item.getAttribute('data-category').split(' ');
+          
+          if (category === 'all' || itemCategories.includes(category)) {
+            item.style.display = 'block';
+            // Add animation
+            item.style.opacity = '0';
+            item.style.transform = 'scale(0.8)';
+            setTimeout(() => {
+              item.style.transition = 'all 0.3s ease';
+              item.style.opacity = '1';
+              item.style.transform = 'scale(1)';
+            }, 100);
+          } else {
+            item.style.opacity = '0';
+            item.style.transform = 'scale(0.8)';
+            setTimeout(() => {
+              item.style.display = 'none';
+            }, 300);
+          }
+        });
+      });
+    });
+
+    // Modal functionality
+    const modal = document.getElementById('imageModal');
+    const modalImage = document.getElementById('modalImage');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalCategory = document.getElementById('modalCategory');
+    const modalClose = document.querySelector('[data-id="modal-close"]');
+
+    // Open modal when gallery item is clicked
+    galleryItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const img = item.querySelector('img');
+        const title = item.querySelector('h3').textContent;
+        const category = item.querySelector('p').textContent;
+        
+        modalImage.src = img.src;
+        modalImage.alt = img.alt;
+        modalTitle.textContent = title;
+        modalCategory.textContent = category;
+        
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    // Close modal
+    const closeModal = () => {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      document.body.style.overflow = 'auto';
+    };
+
+    modalClose.addEventListener('click', closeModal);
+    
+    // Close modal when clicking outside image
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+        closeModal();
+      }
+    });
+
+    // Load more functionality (simulated)
+    document.querySelector('[data-id="load-more-btn"]').addEventListener('click', () => {
+      alert('More images will be loaded here in the full implementation!');
+    });
+
+    // Initialize icons after dynamic content
+    setTimeout(() => {
+      lucide.createIcons();
+    }, 500);
+  </script>
+</body>
+</html>

@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mehndi Services & Booking - Hand Embroidery by Sana</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://use.typekit.net/yjp3aho.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            'sofia': ['sofia-pro', 'sans-serif'],
+          },
+          colors: {
+            'rose-gold': '#E8B4B8',
+            'deep-rose': '#C1666B',
+            'sage': '#95A99B',
+            'warm-beige': '#F4ECD8',
+            'terracotta': '#D4A574'
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="font-sofia bg-warm-beige">
+  <!-- Navigation -->
+  <div id="navbar-container" data-source="components/navbar.html"></div>
+
+  <!-- Hero Section -->
+  <section class="pt-32 pb-16 bg-gradient-to-br from-warm-beige via-rose-gold/20 to-sage/20" data-id="hero-section">
+    <div class="container mx-auto px-4">
+      <div class="text-center max-w-4xl mx-auto">
+        <h1 class="text-4xl md:text-6xl font-bold text-deep-rose mb-6" data-id="page-title">Mehndi Booking</h1>
+        <p class="text-xl text-gray-700 mb-8" data-id="page-subtitle">
+          Book your perfect mehndi experience for weddings, festivals, and special celebrations
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mehndi Services Overview -->
+  <section class="py-16" data-id="services-overview">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4" data-id="services-title">Our Mehndi Services</h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto" data-id="services-subtitle">
+          From intimate gatherings to grand celebrations, we create stunning mehndi designs that tell your unique story.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 mb-16">
+        <!-- Bridal Mehndi -->
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow" data-id="bridal-service">
+          <div class="h-48 bg-gradient-to-br from-rose-gold to-deep-rose"></div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-800 mb-3">Bridal Mehndi</h3>
+            <p class="text-gray-600 mb-4">Intricate and elaborate designs for your special day. Includes hands, feet, and arms with traditional and contemporary patterns.</p>
+            <ul class="text-sm text-gray-600 space-y-2 mb-4">
+              <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i>Full bridal package (hands & feet)</li>
+              <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i>Premium henna quality</li>
+              <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i>4-6 hours session</li>
+              <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i>Custom design consultation</li>
+            </ul>
+            <div class="text-2xl font-bold text-deep-rose mb-4">₹8,000 - ₹15,000</div>
+            <button class="w-full bg-gradient-to-r from-rose-gold to-deep-rose text-white py-2 px-4 rounded-lg font-semibold hover:shadow-lg transition-all">
+              Book Bridal Session
+            </button>
+          </div>
+        </div>
+
+        <!-- Party Mehndi -->
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow" data-id="party-service">
+          <div class="h-48 bg-gradient-to-br from-sage to-rose-gold"></div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-800 mb-3">Party & Event Mehndi</h3>
+            <p class="text-gray-600 mb-4">Beautiful designs for festivals, parties, and special occasions. Perfect for groups and celebrations.</p>
+            <ul class="text-sm text-gray-600 space-y-2 mb-4">
+              <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i>Group bookings available</li>
+              <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i>Variety of design styles</li>
+              <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i>Quick application</li>
+              <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i>Festival specials</li>
+            </ul>
+            <div class="text-2xl font-bold text-deep-rose mb-4">₹300 - ₹1,500</div>
+            <button class="w-full bg-gradient-to-r from-sage to-deep-rose text-white py-2 px-4 rounded-lg font-semibold hover:shadow-lg transition-all">
+              Book Party Session
+            </button>
+          </div>
+        </div>
+
+        <!-- Simple Mehndi -->
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow" data-id="simple-service">
+          <div class="h-48 bg-gradient-to-br from-warm-beige to-rose-gold"></div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-800 mb-3">Simple & Elegant</h3>
+            <p class="text-gray-600 mb-4">Minimalist and elegant designs perfect for everyday wear, office events, or casual occasions.</p>
+            <ul class="text-sm text-gray-600 space-y-2 mb-4">
+              <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i>Quick 1-2 hour sessions</li>
+              <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i>Minimalist patterns</li>
+              <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i>Perfect for beginners</li>
+              <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-500 mr-2"></i>Affordable pricing</li>
+            </ul>
+            <div class="text-2xl font-bold text-deep-rose mb-4">₹200 - ₹800</div>
+            <button class="w-full bg-gradient-to-r from-warm-beige via-rose-gold to-deep-rose text-white py-2 px-4 rounded-lg font-semibold hover:shadow-lg transition-all">
+              Book Simple Session
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Popular Mehndi Designs Gallery -->
+  <section class="py-16 bg-white" data-id="designs-gallery">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4" data-id="gallery-title">Popular Mehndi Designs</h2>
+        <p class="text-lg text-gray-600" data-id="gallery-subtitle">Get inspired by our most loved designs</p>
+      </div>
+
+      <!-- Design Categories -->
+      <div class="flex flex-wrap justify-center gap-4 mb-8" data-id="design-categories">
+        <button class="design-filter active px-6 py-2 bg-deep-rose text-white rounded-full font-semibold hover:bg-deep-rose/90 transition-colors" data-filter="all">All Designs</button>
+        <button class="design-filter px-6 py-2 bg-gray-200 text-gray-700 rounded-full font-semibold hover:bg-gray-300 transition-colors" data-filter="bridal">Bridal</button>
+        <button class="design-filter px-6 py-2 bg-gray-200 text-gray-700 rounded-full font-semibold hover:bg-gray-300 transition-colors" data-filter="arabic">Arabic</button>
+        <button class="design-filter px-6 py-2 bg-gray-200 text-gray-700 rounded-full font-semibold hover:bg-gray-300 transition-colors" data-filter="floral">Floral</button>
+        <button class="design-filter px-6 py-2 bg-gray-200 text-gray-700 rounded-full font-semibold hover:bg-gray-300 transition-colors" data-filter="geometric">Geometric</button>
+        <button class="design-filter px-6 py-2 bg-gray-200 text-gray-700 rounded-full font-semibold hover:bg-gray-300 transition-colors" data-filter="minimalist">Minimalist</button>
+      </div>
+
+      <!-- Design Grid -->
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" data-id="designs-grid">
+        <!-- Design items will be generated by JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking Process -->
+  <section class="py-16 bg-warm-beige" data-id="booking-process">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4" data-id="process-title">How It Works</h2>
+        <p class="text-lg text-gray-600" data-id="process-subtitle">Simple steps to book your perfect mehndi session</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking Form -->
+  <section class="py-16 bg-white" data-id="booking-form-section">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12" data-id="form-header">
+          <h2 class="text-3xl md:text-4xl font-bold text-deep-rose mb-4" data-id="form-title">Book Your Session</h2>
+          <p class="text-gray-700 text-lg" data-id="form-subtitle">Fill out the form below and I'll get back to you within 24 hours</p>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-2xl p-8 md:p-12" data-id="booking-form-container">
+          <form class="space-y-8" data-id="booking-form" id="mehndiBookingForm">
+            <!-- Personal Information -->
+            <div class="grid md:grid-cols-2 gap-6" data-id="personal-info">
+              <div data-id="name-field">
+                <label class="block text-gray-700 font-semibold mb-2" data-id="name-label">Full Name *</label>
+                <input type="text" name="fullName" required
+                       class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-deep-rose focus:border-transparent"
+                       placeholder="Enter your full name"
+                       data-id="name-input">
+              </div>
+              
+              <div data-id="phone-field">
+                <label class="block text-gray-700 font-semibold mb-2" data-id="phone-label">Phone Number *</label>
+                <input type="tel" name="phone" required
+                       class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-deep-rose focus:border-transparent"
+                       placeholder="+91 9876543210"
+                       data-id="phone-input">
+              </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6" data-id="contact-info">
+              <div data-id="email-field">
+                <label class="block text-gray-700 font-semibold mb-2" data-id="email-label">Email Address</label>
+                <input type="email" name="email"
+                       class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-deep-rose focus:border-transparent"
+                       placeholder="your@email.com"
+                       data-id="email-input">
+              </div>
+              
+              <div data-id="location-field">
+                <label class="block text-gray-700 font-semibold mb-2" data-id="location-label">Location/Address *</label>
+                <input type="text" name="location" required
+                       class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-deep-rose focus:border-transparent"
+                       placeholder="Your location"
+                       data-id="location-input">
+              </div>
+            </div>
+
+            <!-- Service Selection -->
+            <div data-id="service-field">
+              <label class="block text-gray-700 font-semibold mb-4" for="service">Select Service *</label>
+              <select id="service" name="service" required
+                      class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-deep-rose focus:border-transparent">
+                <option value="">Choose a service</option>
+                <optgroup label="Bridal Mehndi">
+                  <option value="bridal-full">Full Bridal Package (Hands & Feet)</option>
+                  <option value="bridal-hands">Bridal Hands Only</option>
+                </optgroup>
+                <optgroup label="Party & Event Mehndi">
+                  <option value="party-group">Group Booking (Per Person)</option>
+                  <option value="party-individual">Individual Party Design</option>
+                </optgroup>
+                <optgroup label="Simple & Elegant Mehndi">
+                  <option value="simple-hands">Simple Hand Design</option>
+                  <option value="simple-feet">Simple Feet Design</option>
+                </optgroup>
+                <option value="custom">Custom Design / Consultation</option>
+              </select>
+              <div id="estimated-price"></div>
+            </div>
+
+            <!-- Date and Time -->
+            <div class="grid md:grid-cols-2 gap-6" data-id="datetime-info">
+              <div data-id="date-field">
+                <label class="block text-gray-700 font-semibold mb-2" data-id="date-label">Preferred Date *</label>
+                <input type="date" name="date" required id="date"
+                       class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-deep-rose focus:border-transparent"
+                       data-id="date-input">
+              </div>
+              
+              <div data-id="time-field">
+                <label class="block text-gray-700 font-semibold mb-2" data-id="time-label">Preferred Time *</label>
+                <select name="time" required id="time"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-deep-rose focus:border-transparent"
+                        data-id="time-select">
+                  <option value="">Select time</option>
+                  <option value="09:00">09:00 AM</option>
+                  <option value="10:00">10:00 AM</option>
+                  <option value="11:00">11:00 AM</option>
+                  <option value="12:00">12:00 PM</option>
+                  <option value="13:00">01:00 PM</option>
+                  <option value="14:00">02:00 PM</option>
+                  <option value="15:00">03:00 PM</option>
+                  <option value="16:00">04:00 PM</option>
+                  <option value="17:00">05:00 PM</option>
+                  <option value="18:00">06:00 PM</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Additional Details -->
+            <div data-id="details-field">
+              <label class="block text-gray-700 font-semibold mb-2" data-id="details-label">Special Requirements / Notes</label>
+              <textarea name="notes" rows="4"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-deep-rose focus:border-transparent"
+                        placeholder="Any specific design preferences, number of people, or special requirements..."
+                        data-id="details-textarea"></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="text-center pt-6" data-id="submit-section">
+              <button type="submit" 
+                      class="w-full bg-deep-rose text-white py-3 rounded-xl font-semibold hover:bg-deep-rose/90 transition-colors"
+                      data-id="submit-btn">
+                Book My Session
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WhatsApp Integration -->
+  <section class="py-16 bg-white" data-id="whatsapp-section">
+    <div class="container mx-auto px-4">
+      <div class="max-w-2xl mx-auto text-center">
+        <div class="bg-green-50 p-8 rounded-2xl border border-green-200" data-id="whatsapp-card">
+          <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6" data-id="whatsapp-icon">
+            <i data-lucide="message-circle" class="w-8 h-8 text-white"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-800 mb-4" data-id="whatsapp-title">Quick Booking via WhatsApp</h3>
+          <p class="text-gray-600 mb-6" data-id="whatsapp-description">
+            Prefer to chat directly? Send me a message on WhatsApp for instant booking and queries.
+          </p>
+          <a href="https://wa.me/919876543210?text=Hi%20Sana,%20I%20would%20like%20to%20book%20a%20mehndi%20session" 
+             target="_blank"
+             class="bg-green-500 text-white px-8 py-4 rounded-full font-semibold hover:bg-green-600 transition-colors duration-300 inline-flex items-center"
+             data-id="whatsapp-btn">
+            <i data-lucide="message-circle" class="w-5 h-5 mr-2"></i>
+            Message on WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div id="footer-container" data-source="components/footer.html"></div>
+
+  <script type="module">
+    import { loadComponent } from './scripts/components/loader.js';
+    import { db } from './config/supabase.js';
+    
+    // Load shared components
+    await loadComponent('#navbar-container');
+    await loadComponent('#footer-container');
+    
+    // Initialize icons after components load
+    lucide.createIcons();
+
+    // Mehndi Designs Data
+    const mehndiDesigns = [
+      { id: 1, name: "Intricate Bridal Design", category: "bridal", image: "https://images.unsplash.com/photo-1583391733956-6c78276477e3?w=400" },
+      { id: 2, name: "Arabic Style Pattern", category: "arabic", image: "https://images.unsplash.com/photo-1582650625119-3a31f8fa2699?w=400" },
+      { id: 3, name: "Floral Mandala", category: "floral", image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400" },
+      { id: 4, name: "Geometric Pattern", category: "geometric", image: "https://images.unsplash.com/photo-1609205264828-dff8e5a44f40?w=400" },
+      { id: 5, name: "Minimalist Design", category: "minimalist", image: "https://images.unsplash.com/photo-1595348016382-4e6b0e33c7fd?w=400" },
+      { id: 6, name: "Traditional Bridal", category: "bridal", image: "https://images.unsplash.com/photo-1585652757173-57de5e9fab42?w=400" },
+      { id: 7, name: "Bold Arabic", category: "arabic", image: "https://images.unsplash.com/photo-1578498919169-6c4b5e7e7b20?w=400" },
+      { id: 8, name: "Rose Floral", category: "floral", image: "https://images.unsplash.com/photo-1583391733981-3fe8e3d85ea7?w=400" },
+      { id: 9, name: "Modern Geometric", category: "geometric", image: "https://images.unsplash.com/photo-1609205264847-e5dcd4942741?w=400" },
+      { id: 10, name: "Simple Lines", category: "minimalist", image: "https://images.unsplash.com/photo-1590736969955-71cc94901144?w=400" },
+      { id: 11, name: "Bridal Feet Design", category: "bridal", image: "https://images.unsplash.com/photo-1583391733962-8a7d4e5c7e1b?w=400" },
+      { id: 12, name: "Paisley Arabic", category: "arabic", image: "https://images.unsplash.com/photo-1578498919171-6c4b5e7e7b22?w=400" }
+    ];
+
+    // Render mehndi designs
+    function renderDesigns(filter = 'all') {
+      const grid = document.getElementById('designs-grid');
+      const filteredDesigns = filter === 'all' ? mehndiDesigns : mehndiDesigns.filter(design => design.category === filter);
+      
+      grid.innerHTML = filteredDesigns.map(design => `
+        <div class="design-item group cursor-pointer" data-category="${design.category}">
+          <div class="relative overflow-hidden rounded-lg aspect-square">
+            <img src="${design.image}" alt="${design.name}" 
+                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+            <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+              <div class="text-center text-white">
+                <h4 class="font-semibold text-sm mb-2">${design.name}</h4>
+                <button class="bg-white text-gray-800 px-4 py-2 rounded-lg text-xs font-medium hover:bg-gray-100 transition-colors">
+                  View Design
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Design filter functionality
+    document.querySelectorAll('.design-filter').forEach(button => {
+      button.addEventListener('click', () => {
+        // Update active state
+        document.querySelectorAll('.design-filter').forEach(btn => {
+          btn.classList.remove('active', 'bg-deep-rose', 'text-white');
+          btn.classList.add('bg-gray-200', 'text-gray-700');
+        });
+        
+        button.classList.add('active', 'bg-deep-rose', 'text-white');
+        button.classList.remove('bg-gray-200', 'text-gray-700');
+        
+        // Filter designs
+        const filter = button.getAttribute('data-filter');
+        renderDesigns(filter);
+      });
+    });
+
+    // Initialize designs
+    renderDesigns();
+
+    // Service booking buttons
+    document.querySelectorAll('[data-id="bridal-service"] button, [data-id="party-service"] button, [data-id="simple-service"] button').forEach(button => {
+      button.addEventListener('click', (e) => {
+        const serviceType = e.target.closest('[data-id]').getAttribute('data-id').replace('-service', '');
+        
+        // Scroll to booking form
+        document.querySelector('[data-id="booking-form-section"]').scrollIntoView({
+          behavior: 'smooth'
+        });
+        
+        // Pre-select service type
+        setTimeout(() => {
+          const serviceSelect = document.getElementById('service');
+          if (serviceType === 'bridal') {
+            serviceSelect.value = 'bridal-full';
+          } else if (serviceType === 'party') {
+            serviceSelect.value = 'party-group';
+          } else if (serviceType === 'simple') {
+            serviceSelect.value = 'simple-hands';
+          }
+          
+          // Trigger change event to update price
+          serviceSelect.dispatchEvent(new Event('change'));
+        }, 500);
+      });
+    });
+
+    // Enhanced booking form functionality
+    document.getElementById('mehndiBookingForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      const formData = new FormData(this);
+      const bookingData = {};
+      for (let [key, value] of formData.entries()) {
+        bookingData[key] = value;
+      }
+      
+      // Store booking in localStorage (in a real app, this would go to a server)
+      const bookings = JSON.parse(localStorage.getItem('mehndiBookings') || '[]');
+      bookingData.id = Date.now();
+      bookingData.status = 'pending';
+      bookingData.createdAt = new Date().toISOString();
+      bookings.push(bookingData);
+      localStorage.setItem('mehndiBookings', JSON.stringify(bookings));
+      
+      // Show success message
+      alert('Thank you for your booking request! I will contact you within 24 hours to confirm the details.');
+      
+      // Reset form
+      this.reset();
+    });
+
+    // Service selection and pricing
+    document.getElementById('service').addEventListener('change', function(e) {
+      const priceDisplay = document.getElementById('estimated-price');
+      const servicePrices = {
+        'bridal-full': { min: 8000, max: 15000, desc: 'Full bridal package (hands & feet)' },
+        'bridal-hands': { min: 4000, max: 8000, desc: 'Bridal hands only' },
+        'party-group': { min: 300, max: 1500, desc: 'Per person for group bookings' },
+        'party-individual': { min: 800, max: 2000, desc: 'Individual party design' },
+        'simple-hands': { min: 200, max: 800, desc: 'Simple hand design' },
+        'simple-feet': { min: 150, max: 500, desc: 'Simple feet design' },
+        'custom': { min: 500, max: 3000, desc: 'Custom design consultation required' }
+      };
+      
+      const selectedService = servicePrices[e.target.value];
+      if (selectedService) {
+        priceDisplay.innerHTML = `
+          <div class="mt-4 p-4 bg-rose-gold/10 rounded-lg">
+            <h4 class="font-semibold text-deep-rose mb-2">Estimated Price Range</h4>
+            <div class="text-2xl font-bold text-deep-rose mb-1">₹${selectedService.min.toLocaleString()} - ₹${selectedService.max.toLocaleString()}</div>
+            <p class="text-sm text-gray-600">${selectedService.desc}</p>
+            <p class="text-xs text-gray-500 mt-2">Final price depends on design complexity and session duration</p>
+          </div>
+        `;
+      } else {
+        priceDisplay.innerHTML = '';
+      }
+    });
+
+    // Date validation - disable past dates
+    const dateInput = document.getElementById('date');
+    const today = new Date().toISOString().split('T');
+    dateInput.min = today;
+
+    // Time slot suggestions based on service type
+    document.getElementById('service').addEventListener('change', function(e) {
+      const timeInput = document.getElementById('time');
+      const timeSlots = {
+        'bridal-full': ['09:00', '10:00'], // Early start for long sessions
+        'bridal-hands': ['10:00', '11:00', '14:00'],
+        'party-group': ['14:00', '15:00', '16:00'],
+        'party-individual': ['11:00', '14:00', '16:00'],
+        'simple-hands': ['10:00', '11:00', '14:00', '15:00', '16:00'],
+        'simple-feet': ['10:00', '11:00', '14:00', '15:00', '16:00']
+      };
+      
+      // You could enhance this to show available time slots
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart - Hand Embroidery by Sana</title>
+  <meta name="description" content="Review your selected handcrafted embroidery items and proceed to checkout.">
+  
+  <link rel="stylesheet" href="https://use.typekit.net/yjp3aho.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            'sofia': ['sofia-pro', 'sans-serif']
+          },
+          colors: {
+            'rose-gold': '#E8B4B8',
+            'deep-rose': '#C4565A',
+            'warm-beige': '#F5F1EB',
+            'sage': '#9CAF88'
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="font-sofia bg-warm-beige min-h-screen">
+  <div id="navbar-container" data-source="components/navbar.html"></div>
+
+  <!-- Hero Section -->
+  <section class="py-12 bg-gradient-to-br from-rose-gold/20 to-sage/20" data-id="cart-hero">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center" data-id="cart-hero-content">
+        <h1 class="text-4xl lg:text-5xl font-light text-gray-800 mb-4" data-id="cart-hero-title">
+          Your <span class="text-deep-rose">Shopping Cart</span>
+        </h1>
+        <p class="text-lg text-gray-600" data-id="cart-hero-subtitle">
+          Review your handcrafted selections
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cart Content -->
+  <section class="py-12" data-id="cart-content">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        
+        <!-- Cart Items -->
+        <div class="lg:col-span-2" data-id="cart-items-section">
+          <div class="bg-white rounded-xl shadow-sm p-6" data-id="cart-items-container">
+            
+            <!-- Empty Cart State -->
+            <div id="empty-cart" class="text-center py-12 hidden" data-id="empty-cart">
+              <div class="text-gray-400 mb-4" data-id="empty-cart-icon">
+                <i data-lucide="shopping-bag" class="w-20 h-20 mx-auto"></i>
+              </div>
+              <h3 class="text-2xl font-light text-gray-800 mb-4" data-id="empty-cart-title">
+                Your cart is empty
+              </h3>
+              <p class="text-gray-600 mb-8" data-id="empty-cart-message">
+                Discover our beautiful handcrafted collections and add some items to get started
+              </p>
+              <a href="shop.html" 
+                 class="inline-block bg-deep-rose text-white px-8 py-3 rounded-full hover:bg-deep-rose/90 transition-colors"
+                 data-id="shop-now-btn">
+                Continue Shopping
+              </a>
+            </div>
+
+            <!-- Cart Items List -->
+            <div id="cart-items-list" data-id="cart-items-list">
+              <!-- Items will be loaded here -->
+            </div>
+
+            <!-- Continue Shopping -->
+            <div id="continue-shopping" class="border-t border-gray-200 pt-6 mt-6 hidden" data-id="continue-shopping">
+              <a href="shop.html" 
+                 class="inline-flex items-center text-deep-rose hover:text-deep-rose/80 transition-colors"
+                 data-id="continue-shopping-link">
+                <i data-lucide="arrow-left" class="w-4 h-4 mr-2"></i>
+                Continue Shopping
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Order Summary -->
+        <div class="lg:col-span-1" data-id="order-summary-section">
+          <div class="bg-white rounded-xl shadow-sm p-6 sticky top-24" data-id="order-summary">
+            <h3 class="text-xl font-medium text-gray-800 mb-6" data-id="summary-title">
+              Order Summary
+            </h3>
+
+            <div class="space-y-4 mb-6" data-id="summary-details">
+              <div class="flex justify-between text-gray-600" data-id="subtotal-row">
+                <span>Subtotal (<span id="item-count">0</span> items)</span>
+                <span id="subtotal">₹0</span>
+              </div>
+              
+              <div class="flex justify-between text-gray-600" data-id="shipping-row">
+                <span>Shipping</span>
+                <span id="shipping-cost">Free</span>
+              </div>
+              
+              <div class="border-t border-gray-200 pt-4 flex justify-between text-lg font-medium text-gray-800" data-id="total-row">
+                <span>Total</span>
+                <span id="total-amount">₹0</span>
+              </div>
+            </div>
+
+            <div class="space-y-3" data-id="checkout-buttons">
+              <button id="checkout-btn" 
+                      class="w-full bg-deep-rose text-white py-4 rounded-lg font-medium hover:bg-deep-rose/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                      data-id="checkout-btn"
+                      disabled>
+                Proceed to Checkout
+              </button>
+              
+              <button id="save-for-later-btn"
+                      class="w-full border border-gray-300 text-gray-600 py-3 rounded-lg font-medium hover:bg-gray-50 transition-colors"
+                      data-id="save-later-btn">
+                Save for Later
+              </button>
+            </div>
+
+            <!-- Shipping Info -->
+            <div class="mt-6 p-4 bg-sage/10 rounded-lg" data-id="shipping-info">
+              <div class="flex items-center mb-2" data-id="shipping-icon">
+                <i data-lucide="truck" class="w-5 h-5 text-sage mr-2"></i>
+                <span class="text-sm font-medium text-gray-800">Free Shipping</span>
+              </div>
+              <p class="text-sm text-gray-600" data-id="shipping-details">
+                On orders over ₹1,000. Delivery within 5-7 business days.
+              </p>
+            </div>
+
+            <!-- Secure Checkout -->
+            <div class="mt-4 flex items-center justify-center" data-id="security-badges">
+              <div class="flex items-center text-xs text-gray-500">
+                <i data-lucide="shield-check" class="w-4 h-4 mr-1"></i>
+                Secure Checkout
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cart Summary for Mobile (Sticky) -->
+  <div id="mobile-summary" class="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-4 z-40" style="display: none;" data-id="mobile-cart-summary">
+    <div class="flex items-center justify-between mb-2">
+      <span class="font-semibold text-gray-800">Total</span>
+      <span id="mobile-total" class="text-xl font-bold text-deep-rose">₹0</span>
+    </div>
+    <a href="checkout.html" 
+       class="block w-full bg-gradient-to-r from-rose-gold to-deep-rose text-white py-3 px-6 rounded-lg font-semibold text-center hover:shadow-lg transition-all">
+      Proceed to Checkout
+    </a>
+  </div>
+
+  <!-- Enhanced Coupon Modal -->
+  <div id="coupon-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4 hidden" data-id="coupon-modal">
+    <div class="bg-white rounded-2xl p-6 w-full max-w-md">
+      <div class="flex justify-between items-center mb-6">
+        <h3 class="text-xl font-bold text-gray-800">Available Coupons</h3>
+        <button id="close-coupon-modal" class="text-gray-400 hover:text-gray-600">
+          <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+      </div>
+      
+      <div class="space-y-4" id="available-coupons">
+        <!-- Coupons will be loaded here -->
+      </div>
+      
+      <div class="mt-6 pt-4 border-t border-gray-200">
+        <div class="flex gap-2">
+          <input type="text" id="manual-coupon" placeholder="Enter coupon code" 
+                 class="flex-1 px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-rose-gold focus:border-transparent">
+          <button id="apply-manual-coupon" 
+                  class="px-4 py-2 bg-deep-rose text-white rounded-lg text-sm font-medium hover:bg-deep-rose/90 transition-colors">
+            Apply
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Enhanced Empty Cart -->
+  <div id="enhanced-empty-cart" class="hidden text-center py-16" data-id="enhanced-empty-cart">
+    <div class="max-w-md mx-auto">
+      <div class="w-32 h-32 bg-gradient-to-br from-rose-gold to-deep-rose rounded-full flex items-center justify-center mx-auto mb-6">
+        <i data-lucide="shopping-bag" class="w-16 h-16 text-white"></i>
+      </div>
+      <h2 class="text-3xl font-bold text-gray-800 mb-4">Your cart awaits</h2>
+      <p class="text-gray-600 mb-8">Discover our beautiful handmade collection and add items you love.</p>
+      <div class="space-y-4">
+        <a href="shop.html" class="block w-full bg-gradient-to-r from-rose-gold to-deep-rose text-white py-3 px-6 rounded-lg font-semibold hover:shadow-lg transform hover:-translate-y-0.5 transition-all">Explore Products</a>
+        <a href="custom-design.html" class="block w-full border-2 border-deep-rose text-deep-rose py-3 px-6 rounded-lg font-semibold hover:bg-deep-rose hover:text-white transition-all">Request Custom Design</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Cart Content -->
+  <section class="py-16" data-id="cart-content">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div class="lg:col-span-2" id="cart-items">
+          <!-- Cart items will be loaded here by JavaScript -->
+        </div>
+        <div class="lg:col-span-1" id="cart-summary">
+          <!-- Cart summary will be loaded here by JavaScript -->
+        </div>
+        
+        <!-- Recommended Products -->
+        <div class="mt-16" data-id="recommended-products">
+          <h2 class="text-2xl font-bold text-gray-800 mb-8 text-center">You Might Also Like</h2>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-6" id="recommended-grid">
+            <!-- Recommended products will be loaded here -->
+          </div>
+        </div>
+
+        <!-- Trust Badges -->
+        <div class="mt-16 bg-white rounded-2xl shadow-lg p-8" data-id="trust-badges">
+          <div class="grid md:grid-cols-4 gap-6 text-center">
+            <div class="flex flex-col items-center">
+              <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-3">
+                <i data-lucide="shield-check" class="w-6 h-6 text-green-600"></i>
+              </div>
+              <h4 class="font-semibold text-gray-800">Secure Payment</h4>
+              <p class="text-sm text-gray-600">SSL encrypted checkout</p>
+            </div>
+            <div class="flex flex-col items-center">
+              <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-3">
+                <i data-lucide="truck" class="w-6 h-6 text-blue-600"></i>
+              </div>
+              <h4 class="font-semibold text-gray-800">Free Shipping</h4>
+              <p class="text-sm text-gray-600">On orders above ₹699</p>
+            </div>
+            <!-- Add more trust badges -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer-container" data-source="components/footer.html"></div>
+
+  <script type="module">
+    import { loadComponent } from './scripts/components/loader.js';
+    import { CartManager } from './scripts/utils/cart.js';
+    
+    // Load shared components
+    await loadComponent('#navbar-container');
+    await loadComponent('#footer-container');
+    
+    // Initialize icons
+    lucide.createIcons();
+
+    // Enhanced Cart Manager
+    class EnhancedCartManager extends CartManager {
+      constructor() {
+        super();
+        this.setupEnhancedFeatures();
+      }
+
+      setupEnhancedFeatures() {
+        this.loadRecommendedProducts();
+        this.setupCouponModal();
+        this.setupMobileSummary();
+      }
+
+      loadRecommendedProducts() {
+        const recommendedProducts = [
+          { id: 101, name: 'Floral Pendant', price: 899, image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=300' },
+          { id: 102, name: 'Traditional Earrings', price: 1299, image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=300' },
+          { id: 103, name: 'Custom Wall Art', price: 2499, image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300' },
+          { id: 104, name: 'Embroidered Hoops', price: 799, image: 'https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?w=300' }
+        ];
+
+        const grid = document.getElementById('recommended-grid');
+        if (grid) {
+          grid.innerHTML = recommendedProducts.map(product => `
+            <div class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+              <img src="${product.image}" alt="${product.name}" class="w-full h-40 object-cover">
+              <div class="p-4">
+                <h4 class="font-medium text-gray-800 text-sm mb-2">${product.name}</h4>
+                <div class="flex justify-between items-center">
+                  <span class="text-deep-rose font-bold">₹${product.price}</span>
+                  <button class="add-recommended-btn bg-rose-gold text-white px-3 py-1 rounded text-xs hover:bg-deep-rose transition-colors" data-product-id="${product.id}">
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          `).join('');
+
+          // Add event listeners for recommended products
+          grid.querySelectorAll('.add-recommended-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+              const productId = parseInt(e.target.dataset.productId);
+              const product = recommendedProducts.find(p => p.id === productId);
+              if (product) {
+                this.addToCart(product);
+              }
+            });
+          });
+        }
+      }
+
+      setupMobileSummary() {
+        const mobileSummary = document.getElementById('mobile-summary');
+        if (mobileSummary && this.cart.length > 0) {
+          mobileSummary.style.display = 'block';
+          this.updateMobileSummary();
+        }
+      }
+
+      updateMobileSummary() {
+        const mobileTotal = document.getElementById('mobile-total');
+        if (mobileTotal) {
+          const subtotal = this.getCartTotal();
+          const shipping = this.calculateShipping(subtotal);
+          const discount = this.calculateDiscount(subtotal);
+          const total = subtotal + shipping - discount;
+          mobileTotal.textContent = `₹${total}`;
+        }
+      }
+
+      renderCartPage() {
+        const cartContainer = document.getElementById('cart-items');
+        const summaryContainer = document.getElementById('cart-summary');
+        const enhancedEmptyCart = document.getElementById('enhanced-empty-cart');
+        const mobileSummary = document.getElementById('mobile-summary');
+        
+        if (!cartContainer) return;
+
+        if (this.cart.length === 0) {
+          cartContainer.style.display = 'none';
+          if (enhancedEmptyCart) {
+            enhancedEmptyCart.classList.remove('hidden');
+          }
+          if (summaryContainer) summaryContainer.innerHTML = '';
+          if (mobileSummary) mobileSummary.style.display = 'none';
+          return;
+        }
+
+        cartContainer.style.display = 'block';
+        if (enhancedEmptyCart) {
+          enhancedEmptyCart.classList.add('hidden');
+        }
+        cartContainer.innerHTML = this.cart.map(item => this.renderCartItem(item)).join('');
+        
+        if (summaryContainer) {
+          summaryContainer.innerHTML = this.renderCartSummary();
+        }
+
+        this.setupMobileSummary();
+        this.attachCartEventListeners();
+      }
+
+      renderCartSummary() {
+        const subtotal = this.getCartTotal();
+        const shipping = this.calculateShipping(subtotal);
+        const discount = this.calculateDiscount(subtotal);
+        const total = subtotal + shipping - discount;
+
+        return `
+          <div class="bg-white rounded-lg shadow-sm p-6">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Order Summary</h2>
+            
+            <!-- Coupon Section -->
+            <div class="mb-6 p-4 bg-sage/10 rounded-lg">
+              <div class="flex justify-between items-center mb-2">
+                <h4 class="font-semibold text-gray-800">Promo Code</h4>
+                <button id="view-coupons-btn" class="text-sm text-deep-rose hover:text-deep-rose/80 font-medium">
+                  View Available Coupons
+                </button>
+              </div>
+              <div class="flex gap-2 mb-2">
+                <input type="text" id="coupon-input" placeholder="Enter coupon code" 
+                       class="flex-1 px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-rose-gold focus:border-transparent"
+                       value="${this.appliedCoupon || ''}">
+                <button id="apply-coupon-btn" 
+                        class="px-4 py-2 bg-deep-rose text-white rounded-lg text-sm font-medium hover:bg-deep-rose/90 transition-colors">
+                  ${this.appliedCoupon ? 'Remove' : 'Apply'}
+                </button>
+              </div>
+              <div id="coupon-message" class="text-sm"></div>
+              ${this.appliedCoupon ? `<div class="text-sm text-green-600 mt-1">✓ ${this.coupons[this.appliedCoupon].description}</div>` : ''}
+            </div>
+
+            <!-- Price Breakdown -->
+            <div class="space-y-3 mb-6">
+              <div class="flex justify-between">
+                <span class="text-gray-600">Subtotal (${this.getCartCount()} items)</span>
+                <span class="font-medium">₹${subtotal}</span>
+              </div>
+              
+              <div class="flex justify-between">
+                <span class="text-gray-600">Shipping</span>
+                <span class="font-medium ${shipping === 0 ? 'text-green-600' : ''}">
+                  ${shipping === 0 ? 'Free!' : '₹' + shipping}
+                </span>
+              </div>
+              
+              ${discount > 0 ? `
+                <div class="flex justify-between text-green-600">
+                  <span>Discount</span>
+                  <span>-₹${discount}</span>
+                </div>
+              ` : ''}
+              
+              ${subtotal < this.freeShippingThreshold ? `
+                <div class="text-sm text-amber-700 bg-amber-50 p-3 rounded-lg flex items-center">
+                  <i data-lucide="truck" class="w-4 h-4 mr-2"></i>
+                  Add ₹${this.freeShippingThreshold - subtotal} more for free shipping!
+                </div>
+              ` : ''}
+              
+              <hr class="my-4">
+              
+              <div class="flex justify-between text-xl font-bold">
+                <span>Total</span>
+                <span class="text-deep-rose">₹${total}</span>
+              </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="space-y-3">
+              <a href="checkout.html" 
+                 class="block w-full bg-gradient-to-r from-rose-gold to-deep-rose text-white py-4 px-6 rounded-lg font-semibold text-lg text-center hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300">
+                Proceed to Checkout
+              </a>
+              
+              <a href="shop.html" 
+                 class="block w-full bg-white border-2 border-deep-rose text-deep-rose py-3 px-6 rounded-lg font-semibold text-center hover:bg-deep-rose hover:text-white transition-all duration-300">
+                Continue Shopping
+              </a>
+            </div>
+
+            <!-- Trust Indicators -->
+            <div class="mt-6 pt-6 border-t border-gray-200">
+              <div class="flex justify-center space-x-6 text-sm text-gray-500">
+                <div class="flex items-center">
+                  <i data-lucide="shield-check" class="w-4 h-4 mr-1"></i>
+                  Secure Payment
+                </div>
+                <div class="flex items-center">
+                  <i data-lucide="truck" class="w-4 h-4 mr-1"></i>
+                  Fast Delivery
+                </div>
+                <div class="flex items-center">
+                  <i data-lucide="rotate-ccw" class="w-4 h-4 mr-1"></i>
+                  Easy Returns
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
+      setupCouponModal() {
+        const viewCouponsBtn = document.getElementById('view-coupons-btn');
+        const couponModal = document.getElementById('coupon-modal');
+        const closeCouponModal = document.getElementById('close-coupon-modal');
+
+        if (viewCouponsBtn) {
+          viewCouponsBtn.addEventListener('click', () => {
+            this.showCouponModal();
+          });
+        }
+
+        if (closeCouponModal) {
+          closeCouponModal.addEventListener('click', () => {
+            couponModal.classList.add('hidden');
+          });
+        }
+
+        // Close modal on outside click
+        if (couponModal) {
+          couponModal.addEventListener('click', (e) => {
+            if (e.target === couponModal) {
+              couponModal.classList.add('hidden');
+            }
+          });
+        }
+      }
+
+      showCouponModal() {
+        const modal = document.getElementById('coupon-modal');
+        const couponsContainer = document.getElementById('available-coupons');
+        const subtotal = this.getCartTotal();
+
+        if (couponsContainer) {
+          couponsContainer.innerHTML = Object.entries(this.coupons).map(([code, coupon]) => {
+            const isEligible = subtotal >= coupon.minOrder;
+            const isApplied = this.appliedCoupon === code;
+            
+            return `
+              <div class="coupon-item p-4 border rounded-lg ${isEligible ? 'border-green-200 bg-green-50' : 'border-gray-200 bg-gray-50'} ${isApplied ? 'ring-2 ring-deep-rose' : ''}">
+                <div class="flex justify-between items-start mb-2">
+                  <div>
+                    <div class="font-mono font-bold text-lg text-deep-rose">${code}</div>
+                    <div class="text-sm text-gray-600">${coupon.description}</div>
+                    <div class="text-xs text-gray-500 mt-1">Min order: ₹${coupon.minOrder}</div>
+                  </div>
+                  <button class="apply-coupon-modal-btn px-3 py-1 text-sm font-medium rounded ${isApplied ? 'bg-gray-300 text-gray-500' : isEligible ? 'bg-deep-rose text-white hover:bg-deep-rose/90' : 'bg-gray-200 text-gray-400'} transition-colors" 
+                          data-coupon="${code}" ${!isEligible || isApplied ? 'disabled' : ''}>
+                    ${isApplied ? 'Applied' : isEligible ? 'Apply' : 'Not Eligible'}
+                  </button>
+                </div>
+                ${!isEligible ? `<div class="text-xs text-amber-600">Add ₹${coupon.minOrder - subtotal} more to use this coupon</div>` : ''}
+              </div>
+            `;
+          }).join('');
+
+          // Add event listeners for coupon buttons
+          couponsContainer.querySelectorAll('.apply-coupon-modal-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+              const couponCode = e.target.dataset.coupon;
+              const result = this.applyCoupon(couponCode);
+              if (result.success) {
+                modal.classList.add('hidden');
+                this.renderCartPage();
+              }
+            });
+          });
+        }
+
+        modal.classList.remove('hidden');
+        lucide.createIcons();
+      }
+
+      attachCartEventListeners() {
+        super.attachCartEventListeners();
+        
+        // View coupons button
+        const viewCouponsBtn = document.getElementById('view-coupons-btn');
+        if (viewCouponsBtn) {
+          viewCouponsBtn.addEventListener('click', () => {
+            this.showCouponModal();
+          });
+        }
+        
+        this.updateMobileSummary();
+      }
+    }
+
+    // Initialize enhanced cart manager
+    const cartManager = new EnhancedCartManager();
+    
+    // Make cart manager globally available
+    window.cartManager = cartManager;
+  </script>
+</body>
+</html>

@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop - Hand Embroidery by Sana</title>
+  <meta name="description" content="Shop beautiful handcrafted embroidery jewelry, home decor, and accessories. Unique pieces made with love and traditional techniques.">
+  
+  <link rel="stylesheet" href="https://use.typekit.net/yjp3aho.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            'sofia': ['sofia-pro', 'sans-serif']
+          },
+          colors: {
+            'rose-gold': '#E8B4B8',
+            'deep-rose': '#C4565A',
+            'warm-beige': '#F5F1EB',
+            'sage': '#9CAF88'
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="font-sofia bg-warm-beige">
+  <div id="navbar-container" data-source="components/navbar.html"></div>
+
+  <!-- Hero Section -->
+  <section class="py-12 lg:py-20 bg-gradient-to-br from-rose-gold/20 to-sage/20" data-id="shop-hero">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center" data-id="shop-hero-content">
+        <h1 class="text-4xl lg:text-6xl font-light text-gray-800 mb-6" data-id="shop-hero-title">
+          Handcrafted <span class="text-deep-rose">Collections</span>
+        </h1>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto" data-id="shop-hero-subtitle">
+          Discover unique embroidered jewelry, home decor, and accessories made with traditional techniques and modern style
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filters -->
+  <section class="py-8 bg-white border-b border-gray-200" data-id="filters-section">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between space-y-4 md:space-y-0" data-id="filters-container">
+        <!-- Category Filters -->
+        <div class="flex flex-wrap gap-2" data-id="category-filters">
+          <button class="px-4 py-2 bg-deep-rose text-white rounded-full text-sm font-medium filter-btn active" 
+                  data-category="all" data-id="filter-all">
+            All Products
+          </button>
+          <button class="px-4 py-2 bg-gray-100 text-gray-600 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors filter-btn" 
+                  data-category="earrings" data-id="filter-earrings">
+            Earrings
+          </button>
+          <button class="px-4 py-2 bg-gray-100 text-gray-600 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors filter-btn" 
+                  data-category="hoops" data-id="filter-hoops">
+            Hoop Art
+          </button>
+          <button class="px-4 py-2 bg-gray-100 text-gray-600 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors filter-btn" 
+                  data-category="decor" data-id="filter-decor">
+            Home Decor
+          </button>
+          <button class="px-4 py-2 bg-gray-100 text-gray-600 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors filter-btn" 
+                  data-category="accessories" data-id="filter-accessories">
+            Accessories
+          </button>
+        </div>
+
+        <!-- Sort & Price Filter -->
+        <div class="flex items-center space-x-4" data-id="sort-controls">
+          <select class="border border-gray-300 rounded-lg px-3 py-2 text-sm" data-id="sort-select">
+            <option value="featured">Featured</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+            <option value="newest">Newest First</option>
+          </select>
+          <select class="border border-gray-300 rounded-lg px-3 py-2 text-sm" data-id="price-filter">
+            <option value="all">All Prices</option>
+            <option value="0-1000">Under ₹1,000</option>
+            <option value="1000-2000">₹1,000 - ₹2,000</option>
+            <option value="2000-5000">₹2,000 - ₹5,000</option>
+            <option value="5000+">₹5,000+</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Grid -->
+  <section class="py-12 bg-white" data-id="products-section">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8" data-id="products-grid">
+        <!-- Products will be loaded here -->
+      </div>
+
+      <!-- Loading State -->
+      <div id="loading" class="text-center py-12 hidden" data-id="loading">
+        <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-deep-rose mx-auto"></div>
+        <p class="text-gray-600 mt-4">Loading products...</p>
+      </div>
+
+      <!-- No Results -->
+      <div id="no-results" class="text-center py-12 hidden" data-id="no-results">
+        <div class="text-gray-400 mb-4" data-id="no-results-icon">
+          <i data-lucide="package" class="w-16 h-16 mx-auto"></i>
+        </div>
+        <h3 class="text-xl font-medium text-gray-800 mb-2" data-id="no-results-title">No products found</h3>
+        <p class="text-gray-600" data-id="no-results-message">Try adjusting your filters to see more results</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="py-16 bg-gradient-to-r from-rose-gold/10 to-sage/10" data-id="newsletter-section">
+    <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl lg:text-4xl font-light text-gray-800 mb-4" data-id="newsletter-title">
+        Stay Updated
+      </h2>
+      <p class="text-gray-600 mb-8" data-id="newsletter-subtitle">
+        Be the first to know about new collections, special offers, and exclusive designs
+      </p>
+      
+      <form class="max-w-md mx-auto" data-id="newsletter-form">
+        <div class="flex gap-2">
+          <input type="email" 
+                 placeholder="Enter your email" 
+                 class="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-rose focus:border-transparent"
+                 data-id="newsletter-email"
+                 required>
+          <button type="submit" 
+                  class="bg-deep-rose text-white px-6 py-3 rounded-lg hover:bg-deep-rose/90 transition-colors font-medium"
+                  data-id="newsletter-submit">
+            Subscribe
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <div id="footer-container" data-source="components/footer.html"></div>
+
+  <script type="module">
+    import { loadComponent, updateCartCount } from './scripts/components/loader.js';
+    import { db } from './config/supabase.js';
+    
+    // Load shared components
+    await loadComponent('#navbar-container');
+    await loadComponent('#footer-container');
+    
+    // Initialize icons
+    lucide.createIcons();
+
+    // Load products from database
+    let allProducts = [];
+    
+    try {
+      const { data: dbProducts, error } = await db.getProducts({ active: true });
+      if (dbProducts && dbProducts.length > 0) {
+        allProducts = dbProducts.map(product => ({
+          id: product.id,
+          name: product.name,
+          price: product.price,
+          image: product.images || 'https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=400',
+          category: product.category,
+          description: product.description
+        }));
+      }
+    } catch (error) {
+      console.log('Database not connected, using static products');
+    }
+    
+    // Sample products data (fallback if database not connected)
+    const fallbackProducts = [
+      {
+        id: 1,
+        name: "Floral Embroidered Earrings",
+        price: 1299,
+        category: "earrings",
+        image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+        featured: true,
+        description: "Hand-embroidered floral earrings with silk threads"
+      },
+      {
+        id: 2,
+        name: "Mandala Wall Art",
+        price: 2499,
+        category: "decor",
+        image: "https://images.unsplash.com/photo-1573408301185-9146fe634ad0?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+        featured: true,
+        description: "Intricate mandala design embroidered on canvas"
+      },
+      {
+        id: 3,
+        name: "Botanical Hoop Art",
+        price: 899,
+        category: "hoops",
+        image: "https://images.unsplash.com/photo-1594736797933-d0f9dd8b4d40?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+        featured: true,
+        description: "Nature-inspired embroidery hoop perfect for wall decor"
+      },
+      {
+        id: 4,
+        name: "Pearl Drop Earrings",
+        price: 1599,
+        category: "earrings",
+        image: "https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+        featured: false,
+        description: "Elegant pearl earrings with embroidered details"
+      },
+      {
+        id: 5,
+        name: "Vintage Rose Hoop",
+        price: 1199,
+        category: "hoops",
+        image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+        featured: false,
+        description: "Classic rose pattern in vintage-inspired colors"
+      },
+      {
+        id: 6,
+        name: "Boho Statement Earrings",
+        price: 1799,
+        category: "earrings",
+        image: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+        featured: false,
+        description: "Bold bohemian-style earrings with colorful threads"
+      },
+      {
+        id: 7,
+        name: "Embroidered Cushion Cover",
+        price: 1899,
+        category: "decor",
+        image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+        featured: false,
+        description: "Decorative cushion cover with traditional patterns"
+      },
+      {
+        id: 8,
+        name: "Handmade Hair Clips",
+        price: 699,
+        category: "accessories",
+        image: "https://images.unsplash.com/photo-1524678606370-a47ad25cb82a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+        featured: false,
+        description: "Set of embroidered hair clips with floral motifs"
+      },
+      {
+        id: 9,
+        name: "Geometric Hoop Art",
+        price: 1099,
+        category: "hoops",
+        image: "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+        featured: false,
+        description: "Modern geometric design with metallic threads"
+      },
+      {
+        id: 10,
+        name: "Bridal Choker Set",
+        price: 3299,
+        category: "accessories",
+        image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+        featured: false,
+        description: "Elegant choker necklace with matching earrings"
+      },
+      {
+        id: 11,
+        name: "Table Runner",
+        price: 2199,
+        category: "decor",
+        image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+        featured: false,
+        description: "Handcrafted table runner with border embroidery"
+      },
+      {
+        id: 12,
+        name: "Festival Jhumkas",
+        price: 2099,
+        category: "earrings",
+        image: "https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+        featured: false,
+        description: "Traditional jhumka earrings with mirror work"
+      }
+    ];
+
+    // Use database products if available, otherwise use fallback
+    const products = allProducts.length > 0 ? allProducts : fallbackProducts;
+
+    // Shopping functionality
+    let filteredProducts = [...products];
+    let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+
+    // Initialize shop
+    document.addEventListener('DOMContentLoaded', () => {
+      renderProducts();
+      setupFilters();
+      setupNewsletterForm();
+      updateCartCount();
+    });
+
+    function renderProducts() {
+      const grid = document.getElementById('products-grid');
+      const loading = document.getElementById('loading');
+      const noResults = document.getElementById('no-results');
+
+      // Show loading
+      loading.classList.remove('hidden');
+      grid.innerHTML = '';
+      noResults.classList.add('hidden');
+
+      // Simulate loading delay
+      setTimeout(() => {
+        loading.classList.add('hidden');
+
+        if (filteredProducts.length === 0) {
+          noResults.classList.remove('hidden');
+          return;
+        }
+
+        grid.innerHTML = filteredProducts.map(product => `
+          <div class="product-card group cursor-pointer" data-category="${product.category}" data-price="${product.price}" data-id="product-${product.id}">
+            <div class="relative overflow-hidden rounded-lg mb-4 bg-gray-50">
+              <img src="${product.image}" 
+                   alt="${product.name}" 
+                   class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                   data-id="product-img-${product.id}">
+              <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              ${product.featured ? '<div class="absolute top-2 left-2 bg-deep-rose text-white text-xs px-2 py-1 rounded">Featured</div>' : ''}
+              <button class="absolute top-2 right-2 p-2 bg-white rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-gray-50"
+                      data-id="wishlist-btn-${product.id}"
+                      onclick="toggleWishlist(${product.id})">
+                <i data-lucide="heart" class="w-4 h-4 text-gray-600"></i>
+              </button>
+            </div>
+            
+            <div class="space-y-2" data-id="product-info-${product.id}">
+              <h3 class="text-lg font-medium text-gray-800 group-hover:text-deep-rose transition-colors" data-id="product-name-${product.id}">${product.name}</h3>
+              <p class="text-sm text-gray-600" data-id="product-desc-${product.id}">${product.description}</p>
+              <div class="flex items-center justify-between" data-id="product-footer-${product.id}">
+                <span class="text-xl font-medium text-deep-rose" data-id="product-price-${product.id}">₹${product.price.toLocaleString()}</span>
+                <button class="bg-deep-rose text-white px-4 py-2 rounded-lg hover:bg-deep-rose/90 transition-colors text-sm font-medium"
+                        data-id="add-to-cart-${product.id}"
+                        onclick="addToCart(${product.id})">
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+        `).join('');
+
+        // Reinitialize lucide icons for new content
+        lucide.createIcons();
+      }, 500);
+    }
+
+    function setupFilters() {
+      // Category filters
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          // Update active state
+          document.querySelectorAll('.filter-btn').forEach(b => {
+            b.classList.remove('active', 'bg-deep-rose', 'text-white');
+            b.classList.add('bg-gray-100', 'text-gray-600');
+          });
+          btn.classList.add('active', 'bg-deep-rose', 'text-white');
+          btn.classList.remove('bg-gray-100', 'text-gray-600');
+
+          currentFilters.category = btn.dataset.category;
+          filterProducts();
+        });
+      });
+
+      // Sort dropdown
+      document.getElementById('sort-select').addEventListener('change', (e) => {
+        currentFilters.sort = e.target.value;
+        filterProducts();
+      });
+
+      // Price filter
+      document.getElementById('price-filter').addEventListener('change', (e) => {
+        currentFilters.priceRange = e.target.value;
+        filterProducts();
+      });
+    }
+
+    function filterProducts() {
+      filteredProducts = products.filter(product => {
+        // Category filter
+        if (currentFilters.category !== 'all' && product.category !== currentFilters.category) {
+          return false;
+        }
+
+        // Price filter
+        if (currentFilters.priceRange !== 'all') {
+          const [min, max] = currentFilters.priceRange.includes('+') 
+            ? [parseInt(currentFilters.priceRange), Infinity]
+            : currentFilters.priceRange.split('-').map(Number);
+          
+          if (product.price < min || product.price > max) {
+            return false;
+          }
+        }
+
+        return true;
+      });
+
+      // Sort products
+      switch (currentFilters.sort) {
+        case 'price-low':
+          filteredProducts.sort((a, b) => a.price - b.price);
+          break;
+        case 'price-high':
+          filteredProducts.sort((a, b) => b.price - a.price);
+          break;
+        case 'newest':
+          filteredProducts.sort((a, b) => b.id - a.id);
+          break;
+        default: // featured
+          filteredProducts.sort((a, b) => {
+            if (a.featured && !b.featured) return -1;
+            if (!a.featured && b.featured) return 1;
+            return 0;
+          });
+      }
+
+      renderProducts();
+    }
+
+    function setupNewsletterForm() {
+      document.getElementById('newsletter-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = document.getElementById('newsletter-email').value;
+        
+        // Simulate subscription
+        const submitBtn = document.getElementById('newsletter-submit');
+        const originalText = submitBtn.textContent;
+        
+        submitBtn.textContent = 'Subscribing...';
+        submitBtn.disabled = true;
+        
+        setTimeout(() => {
+          submitBtn.textContent = 'Subscribed!';
+          submitBtn.classList.add('bg-green-500');
+          setTimeout(() => {
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+            submitBtn.classList.remove('bg-green-500');
+            document.getElementById('newsletter-email').value = '';
+          }, 2000);
+        }, 1000);
+      });
+    }
+
+    // Global functions for cart and wishlist
+    window.addToCart = function(productId) {
+      const product = products.find(p => p.id === productId);
+      if (!product) return;
+
+      // Get existing cart items
+      let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+      
+      // Check if item already exists
+      const existingItem = cart.find(item => item.id === productId);
+      
+      if (existingItem) {
+        existingItem.quantity += 1;
+      } else {
+        cart.push({
+          id: product.id,
+          name: product.name,
+          price: product.price,
+          image: product.image,
+          quantity: 1
+        });
+      }
+      
+      // Save to localStorage
+      localStorage.setItem('cart', JSON.stringify(cart));
+      
+      // Update cart count
+      updateCartCount();
+      
+      // Show feedback
+      const btn = document.querySelector(`[data-id="add-to-cart-${productId}"]`);
+      const originalText = btn.textContent;
+      btn.textContent = 'Added!';
+      btn.classList.add('bg-green-500');
+      
+      setTimeout(() => {
+        btn.textContent = originalText;
+        btn.classList.remove('bg-green-500');
+      }, 1500);
+    };
+
+    window.toggleWishlist = function(productId) {
+      // Simple wishlist toggle (could be enhanced with localStorage)
+      const btn = document.querySelector(`[data-id="wishlist-btn-${productId}"]`);
+      const icon = btn.querySelector('i');
+      
+      if (icon.classList.contains('text-red-500')) {
+        icon.classList.remove('text-red-500', 'fill-current');
+        icon.classList.add('text-gray-600');
+      } else {
+        icon.classList.remove('text-gray-600');
+        icon.classList.add('text-red-500', 'fill-current');
+      }
+    };
+  </script>
+</body>
+</html>

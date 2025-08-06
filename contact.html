@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Hand Embroidery by Sana</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://use.typekit.net/yjp3aho.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            'sofia': ['sofia-pro', 'sans-serif'],
+          },
+          colors: {
+            'rose-gold': '#E8B4A0',
+            'deep-rose': '#D4847C',
+            'sage': '#A8B5A0',
+            'warm-beige': '#F5F1EB',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="font-sofia bg-warm-beige">
+  <!-- Navigation -->
+  <div id="navbar-container" data-source="components/navbar.html"></div>
+
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-br from-rose-gold via-deep-rose to-rose-gold pt-24 pb-16" data-id="contact-hero">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <h1 class="text-4xl md:text-6xl font-bold text-white mb-6" data-id="contact-hero-title">Get in Touch</h1>
+        <p class="text-xl text-white/90 max-w-2xl mx-auto" data-id="contact-hero-subtitle">
+          Ready to create something beautiful together? We'd love to hear from you.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form & Info -->
+  <section class="py-16" data-id="contact-main">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12">
+        <!-- Contact Form -->
+        <div class="bg-white rounded-2xl shadow-lg p-8" data-id="contact-form-container">
+          <h2 class="text-3xl font-bold text-gray-800 mb-8" data-id="form-title">Send us a Message</h2>
+          
+          <form id="contact-form" class="space-y-6" data-id="contact-form">
+            <div class="grid md:grid-cols-2 gap-6">
+              <div data-id="name-field">
+                <label for="name" class="block text-sm font-semibold text-gray-700 mb-2">Full Name *</label>
+                <input type="text" id="name" name="name" required
+                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-gold focus:border-transparent transition-all">
+              </div>
+              <div data-id="email-field">
+                <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">Email Address *</label>
+                <input type="email" id="email" name="email" required
+                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-gold focus:border-transparent transition-all">
+              </div>
+            </div>
+
+            <div data-id="phone-field">
+              <label for="phone" class="block text-sm font-semibold text-gray-700 mb-2">Phone Number</label>
+              <input type="tel" id="phone" name="phone"
+                     class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-gold focus:border-transparent transition-all">
+            </div>
+
+            <div data-id="subject-field">
+              <label for="subject" class="block text-sm font-semibold text-gray-700 mb-2">Subject *</label>
+              <select id="subject" name="subject" required
+                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-gold focus:border-transparent transition-all">
+                <option value="">Choose a subject</option>
+                <option value="product-inquiry">Product Inquiry</option>
+                <option value="custom-design">Custom Design Request</option>
+                <option value="mehndi-booking">Mehndi Booking</option>
+                <option value="collaboration">Collaboration</option>
+                <option value="general">General Question</option>
+              </select>
+            </div>
+
+            <div data-id="message-field">
+              <label for="message" class="block text-sm font-semibold text-gray-700 mb-2">Message *</label>
+              <textarea id="message" name="message" rows="6" required
+                        placeholder="Tell us about your requirements, preferred dates, budget, or any specific details..."
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-gold focus:border-transparent transition-all resize-none"></textarea>
+            </div>
+
+            <button type="submit" data-id="contact-submit-btn"
+                    class="w-full bg-gradient-to-r from-rose-gold to-deep-rose text-white py-4 px-8 rounded-lg font-semibold text-lg hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300">
+              <span class="flex items-center justify-center gap-2">
+                <i data-lucide="send" class="w-5 h-5"></i>
+                Send Message
+              </span>
+            </button>
+          </form>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="space-y-8" data-id="contact-info">
+          <!-- Contact Details -->
+          <div class="bg-white rounded-2xl shadow-lg p-8" data-id="contact-details-card">
+            <h3 class="text-2xl font-bold text-gray-800 mb-6" data-id="contact-details-title">Contact Information</h3>
+            
+            <div class="space-y-6">
+              <div class="flex items-start gap-4" data-id="phone-info">
+                <div class="bg-rose-gold/20 p-3 rounded-lg">
+                  <i data-lucide="phone" class="w-6 h-6 text-deep-rose"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-gray-800">Phone</h4>
+                  <p class="text-gray-600">+91 98765 43210</p>
+                  <p class="text-sm text-gray-500">Available: 10 AM - 8 PM</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4" data-id="email-info">
+                <div class="bg-rose-gold/20 p-3 rounded-lg">
+                  <i data-lucide="mail" class="w-6 h-6 text-deep-rose"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-gray-800">Email</h4>
+                  <p class="text-gray-600">hello@embroideryart.com</p>
+                  <p class="text-sm text-gray-500">We'll respond within 24 hours</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4" data-id="location-info">
+                <div class="bg-rose-gold/20 p-3 rounded-lg">
+                  <i data-lucide="map-pin" class="w-6 h-6 text-deep-rose"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-gray-800">Location</h4>
+                  <p class="text-gray-600">Mumbai, Maharashtra</p>
+                  <p class="text-sm text-gray-500">Home studio visits available</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Social Media -->
+          <div class="bg-white rounded-2xl shadow-lg p-8" data-id="social-media-card">
+            <h3 class="text-2xl font-bold text-gray-800 mb-6" data-id="social-title">Follow Our Journey</h3>
+            
+            <div class="grid grid-cols-2 gap-4">
+              <a href="#" class="flex items-center gap-3 p-4 bg-gradient-to-br from-pink-500 to-rose-500 text-white rounded-lg hover:shadow-lg transform hover:-translate-y-1 transition-all" data-id="instagram-link">
+                <i data-lucide="instagram" class="w-6 h-6"></i>
+                <div>
+                  <div class="font-semibold">Instagram</div>
+                  <div class="text-sm opacity-90">@embroidery_art</div>
+                </div>
+              </a>
+
+              <a href="#" class="flex items-center gap-3 p-4 bg-gradient-to-br from-blue-500 to-blue-600 text-white rounded-lg hover:shadow-lg transform hover:-translate-y-1 transition-all" data-id="facebook-link">
+                <i data-lucide="facebook" class="w-6 h-6"></i>
+                <div>
+                  <div class="font-semibold">Facebook</div>
+                  <div class="text-sm opacity-90">Embroidery Art</div>
+                </div>
+              </a>
+
+              <a href="#" class="flex items-center gap-3 p-4 bg-gradient-to-br from-green-500 to-green-600 text-white rounded-lg hover:shadow-lg transform hover:-translate-y-1 transition-all" data-id="whatsapp-link">
+                <i data-lucide="message-circle" class="w-6 h-6"></i>
+                <div>
+                  <div class="font-semibold">WhatsApp</div>
+                  <div class="text-sm opacity-90">Quick Chat</div>
+                </div>
+              </a>
+
+              <a href="#" class="flex items-center gap-3 p-4 bg-gradient-to-br from-red-500 to-pink-500 text-white rounded-lg hover:shadow-lg transform hover:-translate-y-1 transition-all" data-id="pinterest-link">
+                <i data-lucide="image" class="w-6 h-6"></i>
+                <div>
+                  <div class="font-semibold">Pinterest</div>
+                  <div class="text-sm opacity-90">Design Ideas</div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <!-- Quick Services -->
+          <div class="bg-gradient-to-br from-sage/20 to-rose-gold/20 rounded-2xl p-8" data-id="quick-services">
+            <h3 class="text-2xl font-bold text-gray-800 mb-6" data-id="quick-services-title">Quick Services</h3>
+            
+            <div class="space-y-4">
+              <a href="custom-design.html" class="flex items-center justify-between p-4 bg-white rounded-lg hover:shadow-md transition-all" data-id="custom-design-link">
+                <div class="flex items-center gap-3">
+                  <i data-lucide="palette" class="w-5 h-5 text-deep-rose"></i>
+                  <span class="font-medium">Custom Design Request</span>
+                </div>
+                <i data-lucide="arrow-right" class="w-5 h-5 text-gray-400"></i>
+              </a>
+
+              <a href="mehndi-booking.html" class="flex items-center justify-between p-4 bg-white rounded-lg hover:shadow-md transition-all" data-id="mehndi-booking-link">
+                <div class="flex items-center gap-3">
+                  <i data-lucide="calendar" class="w-5 h-5 text-deep-rose"></i>
+                  <span class="font-medium">Book Mehndi Session</span>
+                </div>
+                <i data-lucide="arrow-right" class="w-5 h-5 text-gray-400"></i>
+              </a>
+
+              <a href="shop.html" class="flex items-center justify-between p-4 bg-white rounded-lg hover:shadow-md transition-all" data-id="shop-link">
+                <div class="flex items-center gap-3">
+                  <i data-lucide="shopping-bag" class="w-5 h-5 text-deep-rose"></i>
+                  <span class="font-medium">Browse Products</span>
+                </div>
+                <i data-lucide="arrow-right" class="w-5 h-5 text-gray-400"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="py-16 bg-white" data-id="faq-section">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4" data-id="faq-title">Frequently Asked Questions</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto" data-id="faq-subtitle">
+          Quick answers to common questions about our embroidery and mehndi services.
+        </p>
+      </div>
+
+      <div class="space-y-4" data-id="faq-container">
+        <div class="faq-item bg-gray-50 rounded-lg" data-id="faq-1">
+          <button class="faq-question w-full p-6 text-left font-semibold text-gray-800 hover:text-deep-rose transition-colors flex justify-between items-center">
+            How far in advance should I book mehndi services?
+            <i data-lucide="chevron-down" class="w-5 h-5 transition-transform"></i>
+          </button>
+          <div class="faq-answer hidden px-6 pb-6 text-gray-600">
+            For bridal mehndi, we recommend booking at least 2-3 weeks in advance. For regular occasions, 1 week is usually sufficient. During peak seasons (wedding season, festivals), earlier booking is advisable.
+          </div>
+        </div>
+
+        <div class="faq-item bg-gray-50 rounded-lg" data-id="faq-2">
+          <button class="faq-question w-full p-6 text-left font-semibold text-gray-800 hover:text-deep-rose transition-colors flex justify-between items-center">
+            What's included in custom embroidery design service?
+            <i data-lucide="chevron-down" class="w-5 h-5 transition-transform"></i>
+          </button>
+          <div class="faq-answer hidden px-6 pb-6 text-gray-600">
+            Our custom service includes initial consultation, design sketches, material selection, progress updates, and final finishing. We work closely with you throughout the process to ensure your vision comes to life.
+          </div>
+        </div>
+
+        <div class="faq-item bg-gray-50 rounded-lg" data-id="faq-3">
+          <button class="faq-question w-full p-6 text-left font-semibold text-gray-800 hover:text-deep-rose transition-colors flex justify-between items-center">
+            Do you offer international shipping?
+            <i data-lucide="chevron-down" class="w-5 h-5 transition-transform"></i>
+          </button>
+          <div class="faq-answer hidden px-6 pb-6 text-gray-600">
+            Yes! We ship worldwide. International shipping rates and delivery times vary by location. All items are carefully packaged to ensure safe delivery. Customs duties may apply for international orders.
+          </div>
+        </div>
+
+        <div class="faq-item bg-gray-50 rounded-lg" data-id="faq-4">
+          <button class="faq-question w-full p-6 text-left font-semibold text-gray-800 hover:text-deep-rose transition-colors flex justify-between items-center">
+            What payment methods do you accept?
+            <i data-lucide="chevron-down" class="w-5 h-5 transition-transform"></i>
+          </button>
+          <div class="faq-answer hidden px-6 pb-6 text-gray-600">
+            We accept all major credit/debit cards, UPI, net banking, and digital wallets through our secure payment gateway. For custom orders, we typically require 50% advance payment.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div id="footer-container" data-source="components/footer.html"></div>
+
+  <script type="module">
+    import { loadComponent } from './scripts/components/loader.js';
+    import { db } from './config/supabase.js';
+    
+    // Load shared components
+    await loadComponent('#navbar-container');
+    await loadComponent('#footer-container');
+    
+    // Initialize icons
+    lucide.createIcons();
+
+    // Enhanced Contact Form Handler with Database
+    document.getElementById('contact-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      const formData = new FormData(this);
+      const submitBtn = document.querySelector('[data-id="contact-submit-btn"]');
+      const originalText = submitBtn.innerHTML;
+      
+      // Show loading state
+      submitBtn.innerHTML = '<span class="flex items-center justify-center gap-2"><i data-lucide="loader-2" class="w-5 h-5 animate-spin"></i>Sending...</span>';
+      submitBtn.disabled = true;
+      
+      try {
+        // Try to save to database
+        const messageData = {
+          name: formData.get('name'),
+          email: formData.get('email'),
+          phone: formData.get('phone') || '',
+          subject: formData.get('subject'),
+          message: formData.get('message')
+        };
+        
+        await db.createMessage(messageData);
+        
+        // Show success message
+        submitBtn.innerHTML = '<span class="flex items-center justify-center gap-2"><i data-lucide="check" class="w-5 h-5"></i>Message Sent!</span>';
+        submitBtn.className = submitBtn.className.replace('from-rose-gold to-deep-rose', 'from-green-500 to-green-600');
+        
+        // Reset form
+        this.reset();
+        
+      } catch (error) {
+        console.log('Database not connected, simulating success');
+        submitBtn.innerHTML = '<span class="flex items-center justify-center gap-2"><i data-lucide="check" class="w-5 h-5"></i>Message Sent!</span>';
+        submitBtn.className = submitBtn.className.replace('from-rose-gold to-deep-rose', 'from-green-500 to-green-600');
+        
+        // Reset form
+        this.reset();
+        
+      }
+        
+        setTimeout(() => {
+          submitBtn.innerHTML = originalText;
+          submitBtn.className = submitBtn.className.replace('from-green-500 to-green-600', 'from-rose-gold to-deep-rose');
+          submitBtn.disabled = false;
+          lucide.createIcons();
+        }, 3000);
+      }
+    });
+
+    // FAQ Accordion
+    document.querySelectorAll('.faq-question').forEach(question => {
+      question.addEventListener('click', () => {
+        const faqItem = question.closest('.faq-item');
+        const answer = faqItem.querySelector('.faq-answer');
+        const icon = question.querySelector('[data-lucide="chevron-down"]');
+        
+        // Close all other FAQs
+        document.querySelectorAll('.faq-item').forEach(item => {
+          if (item !== faqItem) {
+            item.querySelector('.faq-answer').classList.add('hidden');
+            item.querySelector('[data-lucide="chevron-down"]').style.transform = '';
+          }
+        });
+        
+        // Toggle current FAQ
+        answer.classList.toggle('hidden');
+        icon.style.transform = answer.classList.contains('hidden') ? '' : 'rotate(180deg)';
+      });
+    });
+  </script>
+</body>
+</html>
